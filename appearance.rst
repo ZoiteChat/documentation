@@ -4,13 +4,13 @@ Appearance
 Theme Files
 -----------
 
-We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can *extract* manually into your `config folder <settings.html#config-files>`_ with HexChat closed. Some themes can be found `here <https://dl.hexchat.net/themes/>`_.
+We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can *extract* manually into your `config folder <settings.html#config-files>`_ with ZoiteChat closed. Some themes can be found `here <https://dl.zoitechat.net/themes/>`_.
 
-On unix for example you can extract these with this command while HexChat is closed:
+On unix for example you can extract these with this command while ZoiteChat is closed:
 
-    unzip ~/Downloads/monokai.hct -d ~/.config/hexchat
+    unzip ~/Downloads/monokai.hct -d ~/.config/zoitechat
 
-The theme manager is an optional external application, which is included with the `installer <https://hexchat.github.io/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that simply helps install themes.
+The theme manager is an optional external application, which is included with the `installer <https://zoitechat.github.io/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that simply helps install themes.
 
 Theming
 -------
@@ -22,7 +22,7 @@ Colors are defined in :menuselection:`Settings --> Preferences --> Colors`. Text
 
 `mIRC <http://www.mirc.com/colors.html>`_ colors (00-15) are what you refer to when sending colored text over IRC for others to see and vice versa, because of this they should somewhat follow a set of standards so clients can agree 04 is red.
 
-Local colors (16-31) are to be used by HexChat only and can be anything you wish, these are typically what you use in your `events <appearance.html#text-events>`_.
+Local colors (16-31) are to be used by ZoiteChat only and can be anything you wish, these are typically what you use in your `events <appearance.html#text-events>`_.
 
 Text Events
 ~~~~~~~~~~~
@@ -48,7 +48,7 @@ Text events control the look of every event you see. They can be customized in :
 Icons
 ~~~~~
 
-HexChat comes with built in icons for the tray, user list, and channel tree (which can be disabled in Preferences). You can use `custom icons <https://dl.hexchat.net/themes/icons/>`_ by placing icons (16x16 recommended) in an :file:`icons` subdir, which may need to be created, within your `config folder <settings.html#config-files>`_. The icons must be named exactly as follows including file extensions:
+ZoiteChat comes with built in icons for the tray, user list, and channel tree (which can be disabled in Preferences). You can use `custom icons <https://dl.zoitechat.net/themes/icons/>`_ by placing icons (16x16 recommended) in an :file:`icons` subdir, which may need to be created, within your `config folder <settings.html#config-files>`_. The icons must be named exactly as follows including file extensions:
 
 - User List
 
@@ -72,30 +72,30 @@ HexChat comes with built in icons for the tray, user list, and channel tree (whi
   - tray_fileoffer.png
   - tray_highlight.png
   - tray_message.png
-  - hexchat.png
+  - zoitechat.png
 
 Gtk Theme
 ~~~~~~~~~
 
 To customize more than just text color such as the window borders you must install a gtk theme.
 
-GTK themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
+GTK themes can be either installed globally (changing all gtk2 applications) or to ZoiteChat specifically.
 
 On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
 that will not be shown here.
 
-On Windows application specific themes on Windows requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
+On Windows application specific themes on Windows requires write permissions to ZoiteChat's install dir (e.g. in Program Files). Global themes
 are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
 The only requirement for themes on Windows is that they are for gtk2 and they use the Pixbuf engine. Themes
-requiring other engines will work but not look correct. HexChat has also only shipped this engine
-since 2.10.0. If you use < 2.12.0 you need to install HexChat with the *Gtk theme* option unchecked as this will
+requiring other engines will work but not look correct. ZoiteChat has also only shipped this engine
+since 2.10.0. If you use < 2.12.0 you need to install ZoiteChat with the *Gtk theme* option unchecked as this will
 avoid the installer overwriting it on updates.
 
 This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
 Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zips are on the releases page.
 
-Note that *<installdir>* refers to the full path where HexChat is installed which by default is *C:\\Program Files\\HexChat*. Also these directories may need to be created.
+Note that *<installdir>* refers to the full path where ZoiteChat is installed which by default is *C:\\Program Files\\ZoiteChat*. Also these directories may need to be created.
 
 1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
 2. Extract contents of *vertex-theme\\common\\gtk-2.0-dark\\* into this directory.

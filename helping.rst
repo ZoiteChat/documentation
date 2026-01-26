@@ -4,7 +4,7 @@ How to Help
 Translation
 -----------
 
-Translation is handled by `Transifex <https://www.transifex.com/projects/p/hexchat/>`_. Simply register on the site and apply for membership to a translation team for your language. Approval may take some time.
+Translation is handled by `Transifex <https://www.transifex.com/projects/p/zoitechat/>`_. Simply register on the site and apply for membership to a translation team for your language. Approval may take some time.
 
 .. note::
 
@@ -22,7 +22,7 @@ For more complex additions I direct you to documentation for the projects we use
 - Github_ and ReadTheDocs_ for hosting.
 - Sphinx_ for generating the docs.
 
-.. _Documentation: https://github.com/hexchat/documentation
+.. _Documentation: https://github.com/zoitechat/documentation
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _Sphinx: http://sphinx-doc.org/
 .. _ReadTheDocs: http://read-the-docs.readthedocs.org/en/latest/
@@ -32,7 +32,7 @@ For more complex additions I direct you to documentation for the projects we use
 Bug Reports
 -----------
 
-We use `Github Issues <https://github.com/hexchat/hexchat/issues>`_ for our bug reports. Be sure to search on there for similar issues before posting your own, if it already exists pointing out you also have the issue never hurts. With the bug report include at minimum the information from *help -> about*.
+We use `Github Issues <https://github.com/zoitechat/zoitechat/issues>`_ for our bug reports. Be sure to search on there for similar issues before posting your own, if it already exists pointing out you also have the issue never hurts. With the bug report include at minimum the information from *help -> about*.
 
 .. note::
 
@@ -41,4 +41,4 @@ We use `Github Issues <https://github.com/hexchat/hexchat/issues>`_ for our bug 
 IRC Support
 -----------
 
-Anybody who enjoys helping others and understands much of what's on this site is welcome to help new users in our official irc channel on irc.libera.chat, `#hexchat <ircs://irc.libera.chat/hexchat>`_.
+Anybody who enjoys helping others and understands much of what's on this site is welcome to help new users in our official irc channel on irc.libera.chat, `#zoitechat <ircs://irc.libera.chat/zoitechat>`_.

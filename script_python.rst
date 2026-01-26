@@ -1,4 +1,4 @@
-HexChat Python Interface
+ZoiteChat Python Interface
 ========================
 
 .. default-domain:: py
@@ -15,7 +15,7 @@ Here are some of the features of the python plugin interface:
 - Python interactive command execution
 - Python 2 and 3 support (2.9.6+)
 - Full thread support (except for Python2 on Windows)
-- Stdout and stderr redirected to HexChat console
+- Stdout and stderr redirected to ZoiteChat console
 - Dynamic list management
 - Nice context treatment
 - Plugin preferences
@@ -24,7 +24,7 @@ Here are some of the features of the python plugin interface:
 Python 2 or Python 3
 ~~~~~~~~~~~~~~~~~~~~
 
-As of HexChat 2.9.6 the plugin supports both so which should you pick:
+As of ZoiteChat 2.9.6 the plugin supports both so which should you pick:
 
 As a user most older scripts will not be updated for Python 3 so 2 is your best bet.
 
@@ -61,7 +61,7 @@ The Python plugin comes with a :command:`py` command that takes these arguments.
 
     Execute given Python command interactively. For example::
 
-        /py exec import hexchat; print(hexchat.get_info('channel'))
+        /py exec import zoitechat; print(zoitechat.get_info('channel'))
 
 .. option:: console
 
@@ -80,23 +80,23 @@ Autoloading modules
 If you want some module to be autoloaded together with the Python plugin
 interface (which usually loads at startup time), just make sure it has a
 ``.py`` extension and put it in the :file:`addons` subdir
-of HexChat's `config directory <settings.html#config-files>`_.
+of ZoiteChat's `config directory <settings.html#config-files>`_.
 
 Context theory
 --------------
 
 Before starting to explain what the API offers, I'll do a short
-introduction about the HexChat context concept. Not because it's
+introduction about the ZoiteChat context concept. Not because it's
 something hard to understand, but because you'll understand better the
 API explanations if you know what I'm talking about.
 
-You can think about a context as an HexChat channel, server, or query
+You can think about a context as an ZoiteChat channel, server, or query
 tab. Each of these tabs, has its own context, and is related to a given
 server and channel (queries are a special kind of channel).
 
-The *current* context is the one where HexChat passes control to the
-module. For example, when HexChat receives a command in a specific
-channel, and you have asked HexChat to tell you about this event, the
+The *current* context is the one where ZoiteChat passes control to the
+module. For example, when ZoiteChat receives a command in a specific
+channel, and you have asked ZoiteChat to tell you about this event, the
 current context will be set to this channel before your module is
 called.
 
@@ -135,16 +135,16 @@ so here is an example of how to use one:
     text_strip_unset = 1 << 16 # If this is set use the global option
 
     def get_chanopt (channel, option):
-        for chan in hexchat.get_list('channels'):
+        for chan in zoitechat.get_list('channels'):
             if chan.channel == channel:
                 return bool(chan.flags & option)
 
-    if get_chanopt('#hexchat', text_strip_unset):
-        stripped = bool(hexchat.get_prefs('text_stripcolor_msg'))
+    if get_chanopt('#zoitechat', text_strip_unset):
+        stripped = bool(zoitechat.get_prefs('text_stripcolor_msg'))
     else:
-        stripped = get_chanopt ('#hexchat', text_strip)
+        stripped = get_chanopt ('#zoitechat', text_strip)
 
-    print('Color stripping in #hexchat is: {}'.format(stripped))
+    print('Color stripping in #zoitechat is: {}'.format(stripped))
 
 
 Hello world
@@ -160,26 +160,26 @@ Here is the traditional *hello world* example.
 
     print("Hello world!")
 
-This module will print "Hello world!" in the HexChat console, and sleep
+This module will print "Hello world!" in the ZoiteChat console, and sleep
 forever until it's unloaded. It's a simple module, but already
 introduces some concepts. Notice how the module information is set. This
 information is obligatory, and will be shown when listing the loaded
-HexChat modules.
+ZoiteChat modules.
 
-.. module:: hexchat
+.. module:: zoitechat
 
-hexchat module
+zoitechat module
 --------------
 
-The hexchat module is your passport to every HexChat functionality offered
+The zoitechat module is your passport to every ZoiteChat functionality offered
 by the Python plugin interface. Here's a simple example:
 
 .. code-block:: python
 
-    import hexchat
-    hexchat.prnt("Hi everyone!")
+    import zoitechat
+    zoitechat.prnt("Hi everyone!")
 
-The following functions are available in the hexchat module.
+The following functions are available in the zoitechat module.
 
 Constants and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,7 +193,7 @@ Constants and Attributes
     Priority given to hooks.
 
 .. data:: EAT_PLUGIN
-          EAT_HEXCHAT
+          EAT_ZOITECHAT
           EAT_ALL
           EAT_NONE
 
@@ -225,19 +225,19 @@ Generic functions
 
     .. code-block:: python
 
-        hexchat.emit_print("Channel Message", "John", "Hi there", "@")
+        zoitechat.emit_print("Channel Message", "John", "Hi there", "@")
 
     With plugin version 1.0+ this function takes keywords for certain attributes such as *time*.
 
 .. function:: command(string)
 
     Execute the given command in the current *context*. This has the same
-    results as executing a command in the HexChat window, but notice that
+    results as executing a command in the ZoiteChat window, but notice that
     the ``/`` prefix is not used. Here is an example:
 
     .. code-block:: python
 
-        hexchat.command("server irc.openprojects.net")
+        zoitechat.command("server irc.openprojects.net")
 
     A list of commands is provided here: :ref:`commands_list`.
 
@@ -250,7 +250,7 @@ Generic functions
 
     .. code-block:: python
 
-        if hexchat.nickcmp(nick, "mynick") == 0:
+        if zoitechat.nickcmp(nick, "mynick") == 0:
             print("They are the same!")
 
 .. function:: strip(text[, length=-1, flags=3])
@@ -268,7 +268,7 @@ Generic functions
 
         text = '\00304\002test' # Bold red text
         print(text)
-        print(hexchat.strip(text, len(text), 1)) # Bold uncolored text
+        print(zoitechat.strip(text, len(text), 1)) # Bold uncolored text
 
 Information retrieving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -282,7 +282,7 @@ Information retrieving functions
     - **away:** Away reason or None if you are not away.
     - **channel:** Channel name of the current context.
     - **charset:** Charset in current context.
-    - **configdir:** HexChat config directory e.g.: "~/.config/hexchat".
+    - **configdir:** ZoiteChat config directory e.g.: "~/.config/zoitechat".
     - **event\_text NAME:** Returns text event string for requested event.
     - **gtkwin\_ptr:** Returns hex representation of the pointer to the current Gtk window.
     - **host:** Real hostname of the server you connected to.
@@ -295,7 +295,7 @@ Information retrieving functions
     - **server:** Current server name (what the server claims to be) or
       None if you are not connected.
     - **topic:** Current channel topic.
-    - **version:** HexChat version number.
+    - **version:** ZoiteChat version number.
     - **win\_status:** Returns status of window: 'active', 'hidden', or
       'normal'.
 
@@ -303,23 +303,23 @@ Information retrieving functions
 
     .. code-block:: python
 
-        if hexchat.get_info("network") == 'freenode':
-            hexchat.prnt('connected!')
+        if zoitechat.get_info("network") == 'freenode':
+            zoitechat.prnt('connected!')
 
     You can also get the format of Text Events by using *event_text* and the event:
 
     .. code-block:: python
 
-        print(hexchat.get_info("event_text Channel Message"))
+        print(zoitechat.get_info("event_text Channel Message"))
 
 .. function:: get_prefs(name)
 
-    Retrieve the HexChat setting information specified by the ``name``
+    Retrieve the ZoiteChat setting information specified by the ``name``
     string, as available by the ``/set`` command.
 
     .. code-block:: python
 
-        print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
+        print("Current preferred nick: " + zoitechat.get_prefs("irc_nick1"))
 
     A list of settings is provided here: :ref:`settings_list`.
 
@@ -336,14 +336,14 @@ Information retrieving functions
     user list, etc. Each list item will have its attributes set dynamically
     depending on the information provided by the list type.
 
-    The example below is a rewrite of the example provided with HexChat's
+    The example below is a rewrite of the example provided with ZoiteChat's
     plugin API documentation. It prints a list of every DCC transfer
     happening at the moment. Notice how similar the interface is to the C
-    API provided by HexChat.
+    API provided by ZoiteChat.
 
     .. code-block:: python
 
-        list = hexchat.get_list("dcc")
+        list = zoitechat.get_list("dcc")
         if list:
             print("--- DCC LIST ------------------")
             print("File  To/From   KB/s   Position")
@@ -483,7 +483,7 @@ The notify list shows users on your friends list and their status:
 Hook functions
 ~~~~~~~~~~~~~~
 
-These functions allow one to hook into HexChat events.
+These functions allow one to hook into ZoiteChat events.
 
 Parameters
 ''''''''''
@@ -494,11 +494,11 @@ callback
 A callback is the function that will be called when the event happens.
 
 The callback supposed to return one of the EAT\_\* `constants <script_python.html#constants-and-attributes>`_,
-it is able control how HexChat will proceed after the callback returns. These
+it is able control how ZoiteChat will proceed after the callback returns. These
 are the available constants, and their meanings:
 
 - :data:`EAT_PLUGIN`: Don't let any other plugin receive this event.
-- :data:`EAT_HEXCHAT`: Don't let HexChat treat this event as usual.
+- :data:`EAT_ZOITECHAT`: Don't let ZoiteChat treat this event as usual.
 - :data:`EAT_ALL`: Eat the event completely.
 - :data:`EAT_NONE`: Let everything happen as usual.
 
@@ -565,7 +565,7 @@ For example on a "Channel Message" event:
 
 .. function:: hook_command(name, callback[, userdata=None, priority=PRI_NORM, help=None])
 
-    This function allows you to hook into the name HexChat command. It means
+    This function allows you to hook into the name ZoiteChat command. It means
     that everytime you type ``/name ...``, ``callback`` will be called.
     Parameters ``userdata`` and ``priority`` have their meanings explained
     above, and the parameter help, if given, allows you to pass a help text
@@ -583,13 +583,13 @@ For example on a "Channel Message" event:
             if len(word) < 2:
                 print("Second arg must be the message!")
             else:
-                hexchat.command("NOTICE @{} {}".format(hexchat.get_info("channel"), word_eol[1]))
-            return hexchat.EAT_ALL
+                zoitechat.command("NOTICE @{} {}".format(zoitechat.get_info("channel"), word_eol[1]))
+            return zoitechat.EAT_ALL
 
-        hexchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
+        zoitechat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
 
     You may return one of ``EAT_*`` constants in the callback, to control
-    HexChat's behavior, as explained above.
+    ZoiteChat's behavior, as explained above.
 
 .. function:: hook_print(name, callback[, userdata=None, priority=PRI_NORM])
 
@@ -605,9 +605,9 @@ For example on a "Channel Message" event:
 
         def youpart_cb(word, word_eol, userdata):
             print("You have left channel " + word[2])
-            return hexchat.EAT_HEXCHAT # Don't let HexChat do its normal printing
+            return zoitechat.EAT_ZOITECHAT # Don't let ZoiteChat do its normal printing
 
-        hexchat.hook_print("You Part", youpart_cb)
+        zoitechat.hook_print("You Part", youpart_cb)
 
     Along with Text Events there are a handfull of *special* events you can hook with this:
 
@@ -643,9 +643,9 @@ For example on a "Channel Message" event:
         def youpart_cb(word, word_eol, userdata, attributes):
             if attributes.time: # Time may be 0 if server-time is not enabled.
                 print("You have left channel {} at {}".format(word[2], attributes.time))
-                return hexchat.EAT_HEXCHAT
+                return zoitechat.EAT_ZOITECHAT
 
-        hexchat.hook_print_attrs("You Part", youpart_cb)
+        zoitechat.hook_print_attrs("You Part", youpart_cb)
 
 .. function:: hook_server(name, callback[, userdata=None, priority=PRI_NORM])
 
@@ -662,10 +662,10 @@ For example on a "Channel Message" event:
 
         def kick_cb(word, word_eol, userdata):
             print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
-            # Don't eat this event, let other plugins and HexChat see it too
-            return hexchat.EAT_NONE
+            # Don't eat this event, let other plugins and ZoiteChat see it too
+            return zoitechat.EAT_NONE
 
-       hexchat.hook_server("KICK", kick_cb)
+       zoitechat.hook_server("KICK", kick_cb)
 
 .. function:: hook_server_attrs(name, callback[, userdata=None, priority=PRI_NORM])
 
@@ -681,9 +681,9 @@ For example on a "Channel Message" event:
         def kick_cb(word, word_eol, userdata, attributes):
             if attributes.time: # Time may be 0 if server-time is not enabled.
                 print('He was kicked at {}'.format(attributes.time))
-                return hexchat.EAT_NONE
+                return zoitechat.EAT_NONE
 
-        hexchat.hook_server_attrs("KICK", kick_cb)
+        zoitechat.hook_server_attrs("KICK", kick_cb)
 
 .. function:: hook_timer(timeout, callback[, userdata=None])
 
@@ -701,17 +701,17 @@ For example on a "Channel Message" event:
         def stop_cb(word, word_eol, userdata):
             global myhook
             if myhook is not None:
-                hexchat.unhook(myhook)
+                zoitechat.unhook(myhook)
                 myhook = None
                 print("Timeout removed!")
-            return hexchat.EAT_ALL
+            return zoitechat.EAT_ALL
 
         def timeout_cb(userdata):
             print("Annoying message every 5 seconds! Type /STOP to stop it.")
             return True # Keep the timeout going
 
-        myhook = hexchat.hook_timer(5000, timeout_cb)
-        hexchat.hook_command("STOP", stop_cb)
+        myhook = zoitechat.hook_timer(5000, timeout_cb)
+        zoitechat.hook_command("STOP", stop_cb)
 
 .. function:: hook_unload(callback[, userdata=None])
 
@@ -726,7 +726,7 @@ For example on a "Channel Message" event:
         def unload_cb(userdata):
             print("We're being unloaded!")
 
-        hexchat.hook_unload(unload_cb)
+        zoitechat.hook_unload(unload_cb)
 
 .. function:: unhook(handler)
 
@@ -792,9 +792,9 @@ Context objects
 '''''''''''''''
 
 As explained in the Context theory session above, contexts give access
-to a specific channel/query/server tab of HexChat. Every function
+to a specific channel/query/server tab of ZoiteChat. Every function
 available in the xchat module will be evaluated in the current context,
-which will be specified by HexChat itself before passing control to the
+which will be specified by ZoiteChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
 where `context` objects come into play.
 
@@ -817,7 +817,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
     .. code-block:: python
 
-        cnc = hexchat.find_context(channel='#conectiva')
+        cnc = zoitechat.find_context(channel='#conectiva')
         cnc.command('whois niemeyer')
 
 

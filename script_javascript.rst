@@ -1,4 +1,4 @@
-HexChat Javascript Interface
+ZoiteChat Javascript Interface
 ============================
 
 .. default-domain:: js
@@ -6,7 +6,7 @@ HexChat Javascript Interface
 Information
 -----------
 
-The javascript plugin does not come with HexChat, more information on it can be found `Here <https://github.com/TingPing/hexchat-javascript>`_
+The javascript plugin does not come with ZoiteChat, more information on it can be found `Here <https://github.com/TingPing/zoitechat-javascript>`_
 
 This page is simply for hosting its API docs and is a work in progress.
 

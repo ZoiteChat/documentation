@@ -1,18 +1,18 @@
-HexChat D-Bus Interface
+ZoiteChat D-Bus Interface
 =======================
 
-For more help you can see the HexChat `plugin interface
-documentation <plugins.html>`_ and see some examples in `Python <https://github.com/hexchat/hexchat/blob/master/src/common/dbus/example.py>`_ and `C <https://github.com/hexchat/hexchat/blob/master/src/common/dbus/example.c>`_.
+For more help you can see the ZoiteChat `plugin interface
+documentation <plugins.html>`_ and see some examples in `Python <https://github.com/zoitechat/zoitechat/blob/master/src/common/dbus/example.py>`_ and `C <https://github.com/zoitechat/zoitechat/blob/master/src/common/dbus/example.c>`_.
 
 .. WARNING:: The dbus interface may change in the future.
 
-You can use the "/org/hexchat/Remote" object with interface
-"org.hexchat.plugin", but his context can be changed by other clients at
+You can use the "/org/zoitechat/Remote" object with interface
+"org.zoitechat.plugin", but his context can be changed by other clients at
 any moment and you may receive signal asked by other clients. So for
 more complex usage it's better to get your own remote object. Using
-"Connect" method on interface "org.hexchat.connection"
+"Connect" method on interface "org.zoitechat.connection"
 
-Available methods on *org.hexchat.connection* interface:
+Available methods on *org.zoitechat.connection* interface:
 --------------------------------------------------------
 
 - "Connect"
@@ -32,7 +32,7 @@ Available methods on *org.hexchat.connection* interface:
 
   - No parameter, no return value. It frees your remote object.
 
-Available methods on *org.hexchat.plugin* interface:
+Available methods on *org.zoitechat.plugin* interface:
 ----------------------------------------------------
 
 - "Command"
@@ -45,7 +45,7 @@ Available methods on *org.hexchat.plugin* interface:
 
   - Parameters:
 
-    - gchar\*: text to print on the HexChat window.
+    - gchar\*: text to print on the ZoiteChat window.
 
 - "FindContext"
 
@@ -115,7 +115,7 @@ Available methods on *org.hexchat.plugin* interface:
     - gchar\*: String of text to display when the user executes /help
       for this command. May be NULL if you're lazy.
     - int: Value to returns when the command is catched. See
-      HEXCHAT\_EAT\_\*.
+      ZOITECHAT\_EAT\_\*.
 
   - Returns:
 
@@ -128,7 +128,7 @@ Available methods on *org.hexchat.plugin* interface:
     - gchar\*: Name of the server event.
     - int: Priority of this command.
     - int: Value to returns when the command is catched. See
-      HEXCHAT\_EAT\_\*.
+      ZOITECHAT\_EAT\_\*.
 
   - Returns:
 
@@ -141,7 +141,7 @@ Available methods on *org.hexchat.plugin* interface:
     - gchar\*: Name of the print event.
     - int: Priority of this command.
     - int: Value to returns when the command is catched. See
-      HEXCHAT\_EAT\_\*.
+      ZOITECHAT\_EAT\_\*.
 
   - Returns:
 
@@ -285,8 +285,8 @@ Available signals:
 
   - Parameters:
 
-    - gchar\*\*: word returned by HexChat.
-    - gchar\*\*: word\_eol returned by HexChat.
+    - gchar\*\*: word returned by ZoiteChat.
+    - gchar\*\*: word\_eol returned by ZoiteChat.
     - guint: the ID of the hook (the return value of "HookServer").
     - guint: the ID of the context where the event come from.
 
@@ -294,8 +294,8 @@ Available signals:
 
   - Parameters:
 
-    - gchar\*\*: word returned by HexChat.
-    - gchar\*\*: word\_eol returned by HexChat.
+    - gchar\*\*: word returned by ZoiteChat.
+    - gchar\*\*: word\_eol returned by ZoiteChat.
     - guint: the ID of the hook (the return value of "HookCommand").
     - guint: the ID of the context where the event come from.
 
@@ -303,7 +303,7 @@ Available signals:
 
   - Parameters:
 
-    - gchar\*\*: word returned by HexChat.
+    - gchar\*\*: word returned by ZoiteChat.
     - guint: the ID of the hook (the return value of "HookPrint").
     - guint: the ID of the context where the event come from.
 

@@ -4,7 +4,7 @@ Getting Started
 Quick Start
 -----------
 
-The first time you start HexChat you'll see the *Network List* as seen
+The first time you start ZoiteChat you'll see the *Network List* as seen
 below:
 
 .. image:: _static/img/network_list.png
@@ -48,7 +48,7 @@ this:
 
 .. image:: _static/img/channel_window.png
 
-That's it, you're online. Now you can learn more about HexChat and
+That's it, you're online. Now you can learn more about ZoiteChat and
 customize it for your needs. This website is a good starting point, but
 you can find a lot more on the net. Have fun!
 
