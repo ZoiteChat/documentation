@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# HexChat documentation build configuration file, created by
+# ZoiteChat documentation build configuration file, created by
 # sphinx-quickstart on Thu Jan 03 18:13:28 2013.
 #
 # This file is execfile()d with the current directory set to its
@@ -42,7 +42,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = u'HexChat'
+project = u'ZoiteChat'
 copyright = u'2013, TingPing'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -111,7 +111,7 @@ html_theme_path = ['_theme']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = 'HexChat project'
+#html_title = 'ZoiteChat project'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -202,7 +202,7 @@ html_show_copyright = False
 html_show_sphinx = False
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'HexChatdoc'
+htmlhelp_basename = 'ZoiteChatdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -221,7 +221,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'HexChat.tex', u'HexChat Documentation',
+    ('index', 'ZoiteChat.tex', u'ZoiteChat Documentation',
      u'TingPing', 'manual'),
 ]
 
@@ -251,7 +251,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'hexchat', u'HexChat Documentation',
+    ('index', 'zoitechat', u'ZoiteChat Documentation',
      [u'TingPing'], 1)
 ]
 
@@ -265,8 +265,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'HexChat', u'HexChat Documentation',
-     u'TingPing', 'HexChat', 'One line description of project.',
+    ('index', 'ZoiteChat', u'ZoiteChat Documentation',
+     u'TingPing', 'ZoiteChat', 'One line description of project.',
      'Miscellaneous'),
 ]
 

@@ -1,9 +1,9 @@
 Commands
 ========
 
-Commands in HexChat are prefixed with **/** and to escape them you can type it twice e.g. **//**
+Commands in ZoiteChat are prefixed with **/** and to escape them you can type it twice e.g. **//**
 
-HexChat will first try to run plugin commands, then user commands, then client commands, and lastly send it directly to the server.
+ZoiteChat will first try to run plugin commands, then user commands, then client commands, and lastly send it directly to the server.
 
 User Commands
 -------------
@@ -21,7 +21,7 @@ For more complex commands you can use these codes:
 - **%m** Machine info
 - **%n** Your nick
 - **%t** Time/date
-- **%v** HexChat version
+- **%v** ZoiteChat version
 - **%<num>** Word
 - **&<num>** Word from end of line
 

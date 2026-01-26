@@ -6,11 +6,11 @@ Config Files
 
 Config files are stored as plaintext files (which shouldn't be edited by hand). They are located in:
 
-- Windows: :file:`%APPDATA%\\HexChat`
-- Microsoft Store: :file:`%LOCALAPPDATA%\\Packages\\39215TingPing.HexChat_fqe8h3fzrj50c\\LocalCache\\Roaming\\HexChat`
-- Unix: :file:`~/.config/hexchat`
-- Flatpak: :file:`~/.var/app/io.github.Hexchat/config/hexchat`
-- Snap: :file:`~/snap/hexchat/current/.config/hexchat`
+- Windows: :file:`%APPDATA%\\ZoiteChat`
+- Microsoft Store: :file:`%LOCALAPPDATA%\\Packages\\39215TingPing.ZoiteChat_fqe8h3fzrj50c\\LocalCache\\Roaming\\ZoiteChat`
+- Unix: :file:`~/.config/zoitechat`
+- Flatpak: :file:`~/.var/app/io.github.Hexchat/config/zoitechat`
+- Snap: :file:`~/snap/zoitechat/current/.config/zoitechat`
 
 .. note::
 
@@ -18,12 +18,12 @@ Config files are stored as plaintext files (which shouldn't be edited by hand). 
 
 Custom directories can be set with the `-d` or `--cfgdir` command line argument.
 
-On Windows there is a portable mode option which makes HexChat store settings inside of a :file:`\\config` subdir within the main installation folder. Though this option should only be used if you must for a portable drive or if you lack administrative priviliges for installation.
+On Windows there is a portable mode option which makes ZoiteChat store settings inside of a :file:`\\config` subdir within the main installation folder. Though this option should only be used if you must for a portable drive or if you lack administrative priviliges for installation.
 
 Network List
 ------------
 
-The network list contains a list of networks, basic user information, and per network settings. It can be accessed in :menuselection:`HexChat --> Network List` or by the keyboard shortcut :kbd:`Control-s`.
+The network list contains a list of networks, basic user information, and per network settings. It can be accessed in :menuselection:`ZoiteChat --> Network List` or by the keyboard shortcut :kbd:`Control-s`.
 
 User Information
 ~~~~~~~~~~~~~~~~
@@ -33,7 +33,7 @@ This is where basic information is set for the user such as nicknames, these wil
 Networks
 ~~~~~~~~
 
-HexChat comes with a list of default networks but you can easily add your own or edit existing ones. The sorting and names of networks do matter as some commands reference the network by the name here, e.g. :command:`/newserver`. The order they are sorted in this list also determines the order of auto-connecting. To edit the order just select one and hit :kbd:`Shift-up` or :kbd:`Shift-down`.
+ZoiteChat comes with a list of default networks but you can easily add your own or edit existing ones. The sorting and names of networks do matter as some commands reference the network by the name here, e.g. :command:`/newserver`. The order they are sorted in this list also determines the order of auto-connecting. To edit the order just select one and hit :kbd:`Shift-up` or :kbd:`Shift-down`.
 
 
 Servers
@@ -55,7 +55,7 @@ The password fields allow you to login to a password protected server or service
 
 .. seealso::
 
-    See the `FAQ <faq.html#why-does-hexchat-join-channels-before-identifying>`_ if you have trouble identifying before join.
+    See the `FAQ <faq.html#why-does-zoitechat-join-channels-before-identifying>`_ if you have trouble identifying before join.
 
 Channel Options
 ---------------
@@ -68,7 +68,7 @@ Preferences
 Keyboard Shortcuts
 ~~~~~~~~~~~~~~~~~~
 
-There are two types of keyboard shortcuts in HexChat hardcoded ones which can be found by looking around in the menu, e.g. :kbd:`Control-s`, and configurable ones in :menuselection:`Settings --> Keyboard Shortcuts`. These have help messages to guide you through setting up custom bindings.
+There are two types of keyboard shortcuts in ZoiteChat hardcoded ones which can be found by looking around in the menu, e.g. :kbd:`Control-s`, and configurable ones in :menuselection:`Settings --> Keyboard Shortcuts`. These have help messages to guide you through setting up custom bindings.
 
 Url Handlers
 ~~~~~~~~~~~~
@@ -79,7 +79,7 @@ Url handlers add alternative browsers to you your right click menu on urls (they
 
 .. note::
 
-    If HexChat does not find the executable it will not add it to the menu.
+    If ZoiteChat does not find the executable it will not add it to the menu.
 
 Auto Replace
 ~~~~~~~~~~~~
@@ -506,7 +506,7 @@ List of Settings
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **net\_auto\_reconnectonfail**     | Toggle auto reconnect upon failed connection. (Unix only command, not available on Windows)                                                                                                                                                                       |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **net\_bind\_host**                | Network address to bind HexChat to.                                                                                                                                                                                                                               |
+| **net\_bind\_host**                | Network address to bind ZoiteChat to.                                                                                                                                                                                                                               |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **net\_ping\_timeout**             | How long server ping has to be to timeout.                                                                                                                                                                                                                        |
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

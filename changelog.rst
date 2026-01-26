@@ -1,4 +1,4 @@
-HexChat ChangeLog
+ZoiteChat ChangeLog
 =================
 
 2.16.2 (2024-02-07)
@@ -135,7 +135,7 @@ HexChat ChangeLog
 -------------------
 
 - fix input box theme with Adwaita 3.20
-- fix return value of hexchat_pluginpref_get_int()
+- fix return value of zoitechat_pluginpref_get_int()
 - fix tab color changing when print events are eaten
 - fix network name not being sanitized for scrollback files
 - fix building sysinfo on OS X <= 10.9
@@ -166,7 +166,7 @@ HexChat ChangeLog
 2.12.1-2 (2016-05-06)
 ---------------------
 
-- fix crash in dependencies on Windows (no HexChat changes)
+- fix crash in dependencies on Windows (no ZoiteChat changes)
 
 2.12.1 (2016-05-01)
 -------------------
@@ -231,7 +231,7 @@ HexChat ChangeLog
 
   - fix locking up UI during check
   - show graphical dialog on update
-  - host update file on https://dl.hexchat.net
+  - host update file on https://dl.zoitechat.net
 
 - rewrite checksum plugin
 
@@ -364,7 +364,7 @@ HexChat ChangeLog
 2.9.6.1 (2013-09-15)
 --------------------
 
-- fix some utilities causing crash `#740 <https://github.com/hexchat/hexchat/issues/740>`_
+- fix some utilities causing crash `#740 <https://github.com/zoitechat/zoitechat/issues/740>`_
 
 2.9.6 (2013-09-11)
 ------------------
@@ -406,7 +406,7 @@ HexChat ChangeLog
 - change ``/load -e`` to load from config dir
 - remove Ctrl+L (Clear Text) keybinding
 - remove custom sound applications
-- remove away announce, replaced by away-notify on supported servers (`alternative python script <https://github.com/hexchat/hexchat-addons/blob/master/python/awayannounce/awayanounce.py>`_)
+- remove away announce, replaced by away-notify on supported servers (`alternative python script <https://github.com/zoitechat/zoitechat-addons/blob/master/python/awayannounce/awayanounce.py>`_)
 - update network list
 
 2.9.5 (2013-04-01)
@@ -450,7 +450,7 @@ HexChat ChangeLog
 - make ``/JOIN`` focus the existing channel if already joined
 - change default DCC download directory to ~/Downloads on Unix
 - allow Plugins and Scripts utility to be opened in a tab
-- only beep when the HexChat window is not active
+- only beep when the ZoiteChat window is not active
 - use the certs subfolder of the config folder for loading custom certificates
 - disable tray icon when using Unity
 - remove Lua and Tcl
@@ -495,7 +495,7 @@ HexChat ChangeLog
 - use Consolas as the default font where available
 - open dialog window for double-clicking in the user list by default
 - variable separation, cleanup and renaming
-- check in the installers whether Windows release is supported by HexChat
+- check in the installers whether Windows release is supported by ZoiteChat
 - display previous value after ``/SET``
 - reorganize the Settings menu and add new options
 - redesign the About dialog
@@ -555,7 +555,7 @@ HexChat ChangeLog
 ------------------
 
 - fix installing/loading plugins on Unix
-- fix restoring the HexChat window via shortcuts on Windows
+- fix restoring the ZoiteChat window via shortcuts on Windows
 - fix HexTray icon rendering for certain events
 - fix the Show marker line option in Preferences
 - fix ``/lastlog`` regexp support on Windows

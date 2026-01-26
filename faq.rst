@@ -5,25 +5,25 @@ How do I migrate my settings from XChat?
 ----------------------------------------
 
 .. Caution:: This is generally not recommended. Some issues that may arise are
-   mentioned here: https://github.com/hexchat/hexchat/pull/1794#issuecomment-240102695
+   mentioned here: https://github.com/zoitechat/zoitechat/pull/1794#issuecomment-240102695
 
 - Unix
 
-  1. Copy ``~/.xchat2`` to ``~/.config/hexchat``
-  2. Rename ``~/.config/hexchat/xchat.conf`` to ``~/.config/hexchat/hexchat.conf``
-  3. Rename ``~/.config/hexchat/servlist_.conf`` to ``~/.config/hexchat/servlist.conf``
-  4. Rename ``~/.config/hexchat/xchatlogs`` to ``~/.config/hexchat/logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/hexchat/addons``
-  6. Move all your client certs to ``~/.config/hexchat/certs``
+  1. Copy ``~/.xchat2`` to ``~/.config/zoitechat``
+  2. Rename ``~/.config/zoitechat/xchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
+  3. Rename ``~/.config/zoitechat/servlist_.conf`` to ``~/.config/zoitechat/servlist.conf``
+  4. Rename ``~/.config/zoitechat/xchatlogs`` to ``~/.config/zoitechat/logs``
+  5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
+  6. Move all your client certs to ``~/.config/zoitechat/certs``
 
 - Windows
 
-  1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\HexChat``
-  2. Rename ``%APPDATA%\HexChat\xchat.conf`` to ``%APPDATA%\HexChat\hexchat.conf``
-  3. Rename ``%APPDATA%\HexChat\servlist_.conf`` to ``%APPDATA%\HexChat\servlist.conf``
-  4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
-  6. Move all your client certs to ``%APPDATA%\HexChat\certs``
+  1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\ZoiteChat``
+  2. Rename ``%APPDATA%\ZoiteChat\xchat.conf`` to ``%APPDATA%\ZoiteChat\zoitechat.conf``
+  3. Rename ``%APPDATA%\ZoiteChat\servlist_.conf`` to ``%APPDATA%\ZoiteChat\servlist.conf``
+  4. Rename ``%APPDATA%\ZoiteChat\xchatlogs`` to ``%APPDATA%\ZoiteChat\logs``
+  5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\ZoiteChat\addons``
+  6. Move all your client certs to ``%APPDATA%\ZoiteChat\certs``
 
 The server list format also changed, instead of a giant autojoin list formatted ``J=chan1,chan2 key1,key2``
 it is now formatted on seperate lines ``J=chan1,key1\nJ=chan2,key2``
@@ -49,9 +49,9 @@ Try the following command from a chat window (time is in seconds)::
 Why are channels joined before identifying?
 -------------------------------------------
 
-There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (HexChats default network list tries to use the best method by default, don't change it):
+There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (ZoiteChats default network list tries to use the best method by default, don't change it):
 
-- Use SASL which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+- Use SASL which can be enabled in :menuselection:`ZoiteChat --> Network list --> Edit` (2.9.4+).
   Note that your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
 - Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
@@ -167,15 +167,15 @@ If you are behind a IP-NAT or ADSL router, you will most likely have an
 address like 192.168.0.1. This address is not usable on the Internet,
 and must be translated.
 
-When offering a DCC file, HexChat will tell the receiver your address.
+When offering a DCC file, ZoiteChat will tell the receiver your address.
 If it says 192.168.0.1, the receiver will not be able to connect. One
 way to make it send your "real" address is to enable the "Get my IP from
-IRC Server" option in HexChat. This option is available in :menuselection:`Settings --> Preferences -->
+IRC Server" option in ZoiteChat. This option is available in :menuselection:`Settings --> Preferences -->
 Network setup`. When you turn it ON, you will have to re-login
 to the server before it'll take effect.
 
 You will also need to forward some ports for use in DCC send. You may
-pick almost any port range you wish, for example, in HexChat set:
+pick almost any port range you wish, for example, in ZoiteChat set:
 
 First DCC send port: 4990
 Last DCC send port: 5000
@@ -210,9 +210,9 @@ I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl 
 If you get this error when trying to load a Perl or Python script, it
 means the plugin or language for running those scripts isn't loaded.
 
-- On Unix install the packages including these plugins (e.g. hexchat-perl) and perl.
+- On Unix install the packages including these plugins (e.g. zoitechat-perl) and perl.
 
-  - If you are missing Lua your distro may not have HexChat 2.12.1
+  - If you are missing Lua your distro may not have ZoiteChat 2.12.1
 
 - On Windows select the plugins in the installer.
 
@@ -226,12 +226,12 @@ filename (or use the Browse button). On Windows, sound files must be in .wav for
 How do I auto-load scripts at startup?
 --------------------------------------
 
-The root of your HexChat config is:
+The root of your ZoiteChat config is:
 
--  Windows: %APPDATA%\\HexChat
--  Unix/Linux: ~/.config/hexchat
+-  Windows: %APPDATA%\\ZoiteChat
+-  Unix/Linux: ~/.config/zoitechat
 
-Referred to as <config> from now. HexChat automatically loads, at
+Referred to as <config> from now. ZoiteChat automatically loads, at
 startup:
 
 -  <config>/addons/\*.pl Perl scripts
@@ -240,37 +240,37 @@ startup:
 -  <config>/addons/\*.dll Plugins (Windows)
 -  <config>/addons/\*.so Plugins (Unix)
 
-How do I minimize HexChat to the System Tray (Notification Area)?
+How do I minimize ZoiteChat to the System Tray (Notification Area)?
 -----------------------------------------------------------------
 
-HexChat includes support for a tray icon which can be enabled in
+ZoiteChat includes support for a tray icon which can be enabled in
 :menuselection:`Settings --> Preferences --> Alerts`.
 
-If that option does not appear then HexChat could not detect a usable tray.
+If that option does not appear then ZoiteChat could not detect a usable tray.
 Some desktops such as GNOME require an `extension <https://extensions.gnome.org/extension/615/appindicator-support/>`_ for this.
 
-How do I start HexChat with...?
+How do I start ZoiteChat with...?
 -------------------------------
 
 To see the various launch options such as setting configdir or minimize level run::
 
-    hexchat --help
+    zoitechat --help
 
 Where are the log files saved to?
 ---------------------------------
 
 - Unix::
 
-    ~/.config/hexchat/logs
+    ~/.config/zoitechat/logs
 
 - Windows::
 
-    %APPDATA%\HexChat\logs
+    %APPDATA%\ZoiteChat\logs
 
 Why do config files and logs appear as a single line?
 -----------------------------------------------------
 
-HexChat supports many platforms and to be consistent it uses
+ZoiteChat supports many platforms and to be consistent it uses
 `Unix line endings <https://en.wikipedia.org/wiki/Newline>`_.
 
 This is normally not a problem at all but Microsoft Notepad does not
@@ -319,7 +319,7 @@ use the following command::
 Why don't beep sound alerts work?
 ---------------------------------
 
-On Windows, HexChat is using the `Instant Message Notification` system sound
+On Windows, ZoiteChat is using the `Instant Message Notification` system sound
 for making beep alerts, and if it's unspecified, it attempts to produce a
 simple beep effect. In case you don't hear beeps when alerts occur, you need
 to set this system sound to the desired sound effect. To do this, go to
@@ -356,7 +356,7 @@ but there are some simple guidelines of what the network SHOULD have.
 - A decent amount of active users (100+).
 - Doesn't block large groups of users.
 
-You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pulls>`_ if you
+You should make a pull request on `GitHub <https://github.com/zoitechat/zoitechat/pulls>`_ if you
 want the quickest results, the list is stored in *src/common/servlist.c*. You should include an
 SSL server if supported but you should not include IPv6 only servers and mark SASL as default if supported.
 Follow the syntax of other networks in the file.
@@ -364,7 +364,7 @@ Follow the syntax of other networks in the file.
 A portable install fails with "Missing VCRUNTIME140.dll"
 --------------------------------------------------------
 
-HexChat, being a C application, depends on Microsoft's Visual C++ Runtime. Normally the HexChat installer will
+ZoiteChat, being a C application, depends on Microsoft's Visual C++ Runtime. Normally the ZoiteChat installer will
 install this runtime for you and function as expected. However, if you use the portable mode of the installer
 it cannot install system libraries (this allows running as an unprivileged user).
 
@@ -377,5 +377,5 @@ You can simply install it from Microsoft directly to solve this error:
 What does the Safe Mode start menu entry do?
 --------------------------------------------
 
-This launches HexChat with the ``--no-auto`` and ``--no-plugins`` options. This can bypass any issues you have
+This launches ZoiteChat with the ``--no-auto`` and ``--no-plugins`` options. This can bypass any issues you have
 with a problematic plugin or auto-connecting network.

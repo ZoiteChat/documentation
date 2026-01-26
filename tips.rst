@@ -14,7 +14,7 @@ If you want to have spelling, do the following:
 1.
  - If on Windows 7 select the spelling dictionaries in the installer.
  - For Windows 8+ dictionaries are obtained through the OS.
-2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
+2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, ZoiteChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
 
 .. note::
 
@@ -23,11 +23,11 @@ If you want to have spelling, do the following:
 Windows 10
 ~~~~~~~~~~
 
-HexChat comes with the spell check already installed, but installing dictionaries is slightly different.
+ZoiteChat comes with the spell check already installed, but installing dictionaries is slightly different.
 
 1. In Windows, go to Start -> Settings -> Time & Language -> Region & Language.
 2. Add a new language(s).
-3. Restart HexChat.
+3. Restart ZoiteChat.
 
 
 Unix
@@ -37,27 +37,27 @@ Install enchant and your spelling dictionaries via your package manager (myspell
 
 In 2.10.0+ you can then list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
 
-In older versions the language can be overriden by starting HexChat with "*LANG=en_US hexchat*" (You can edit your hexchat.desktop file to do this every launch)
+In older versions the language can be overriden by starting ZoiteChat with "*LANG=en_US zoitechat*" (You can edit your zoitechat.desktop file to do this every launch)
 
 Localization
 ------------
 
-In order to start HexChat in a different language (for which a translation exists `here <https://www.transifex.com/projects/p/hexchat/>`_) you can use the regional settings of Windows, or set the LC_ALL user environmental variable. The value of the variable must be the two letter country code for your country. If in doubt, have a look at the share\locale folder. You have to restart HexChat for the changes to apply.
+In order to start ZoiteChat in a different language (for which a translation exists `here <https://www.transifex.com/projects/p/zoitechat/>`_) you can use the regional settings of Windows, or set the LC_ALL user environmental variable. The value of the variable must be the two letter country code for your country. If in doubt, have a look at the share\locale folder. You have to restart ZoiteChat for the changes to apply.
 
-You can also use a batch file to affect only HexChat:
+You can also use a batch file to affect only ZoiteChat:
 
 .. code-block:: bat
 
     @echo off
     set LC_ALL=en
-    start hexchat.exe
+    start zoitechat.exe
 
-This sets the language to English. You may use *fr* for French, *de* for German, etc. Save the code above as :file:`run.bat`, and copy it to the HexChat install folder. You can then start HexChat in the desired language by running the batch file.
+This sets the language to English. You may use *fr* for French, *de* for German, etc. Save the code above as :file:`run.bat`, and copy it to the ZoiteChat install folder. You can then start ZoiteChat in the desired language by running the batch file.
 
 Special Glyphs
 --------------
 
-There are many symbols which may not be supported by the main font you selected to use in HexChat, especially Asian glyphs and special characters, like a peace sign. In this case, you'll see "lego blocks" instead of them.
+There are many symbols which may not be supported by the main font you selected to use in ZoiteChat, especially Asian glyphs and special characters, like a peace sign. In this case, you'll see "lego blocks" instead of them.
 
 To circumvent this, you need to have alternative fonts for glyphs not supported by your current font. On Unix this is handled automatically. On Windows you can specify them in :menuselection:`Settings --> Preferences --> Chatting --> Advanced --> Alternative fonts`. By default, it is set to *Arial Unicode MS,Segoe UI Emoji,Lucida Sans Unicode,Meiryo,Symbola,Unifont*, which should cover most characters (note that Unifont does not come with Windows).
 
@@ -74,9 +74,9 @@ Please bear in mind that for some reason certain fonts that can display a certai
 Client Certificates
 -------------------
 
-Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now HexChat can't do it.
+Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now ZoiteChat can't do it.
 
-To use one you need to put your certificate file inside :file:`certs` directory in HexChat's `config folder <settings.html#config-files>`_.
+To use one you need to put your certificate file inside :file:`certs` directory in ZoiteChat's `config folder <settings.html#config-files>`_.
 
 Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*. If that does not exist every network will try *client.pem*. It can not be encrypted and require a password.
 
@@ -84,24 +84,24 @@ An example of creating a cert on unix:
 
 .. code-block:: sh
 
-    openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout ~/.config/hexchat/certs/client.pem -out ~/.config/hexchat/certs/client.pem
+    openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout ~/.config/zoitechat/certs/client.pem -out ~/.config/zoitechat/certs/client.pem
 
 On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On Windows it is possible to edit *cert.pem* file in HexChat main installation directory and add custom certificate there. But this method isn't very effective as *cert.pem* is overwritten each time HexChat installer is used.
+On Windows it is possible to edit *cert.pem* file in ZoiteChat main installation directory and add custom certificate there. But this method isn't very effective as *cert.pem* is overwritten each time ZoiteChat installer is used.
 
 Notice Placement
 ----------------
 
-Other than channel messages and private messages, IRC has a notice type of message. This is intended to be used as a reply, something that will not cause the other client to send any acknowledgement back. When HexChat displays these messages, it shows them in a tab that it figures is appropriate.
+Other than channel messages and private messages, IRC has a notice type of message. This is intended to be used as a reply, something that will not cause the other client to send any acknowledgement back. When ZoiteChat displays these messages, it shows them in a tab that it figures is appropriate.
 
 Why replies from ChanServ may not appear in the current tab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When HexChat decides where to print a notice, it does so in the following order:
+When ZoiteChat decides where to print a notice, it does so in the following order:
 
 1. In a query window you have with that user
 2. In the front tab, if the tab is a channel, the other user is on that channel, and you are on the correct network
@@ -129,7 +129,7 @@ A line is created when new information is printed in a context that is not curre
 
 This line by design only automatically resets when it is seen. One common issue here is that the marker line is at the very top of your scrollback so you very unlikely to see it. This can happen with bnc playback for example where you get a lot of messages at once.
 
-HexChat has two shortcuts to reset the marker line also. Ctrl+M will reset the the marker line directly. Ctrl+Shift+M will scroll to where the marker was which is quite useful if you actually care about the scrollback.
+ZoiteChat has two shortcuts to reset the marker line also. Ctrl+M will reset the the marker line directly. Ctrl+Shift+M will scroll to where the marker was which is quite useful if you actually care about the scrollback.
 
 Once a marker line is "reset" it does not instantly get created at the bottom it will only be created if it matches the conditions mentioned above (not being visible).
 
@@ -144,7 +144,7 @@ Example (with defaults):
 
 .. image:: _static/img/tips_tor_1.png
 
-4. Setup the network in :menuselection:`HexChat --> Network List`. (Note: use only the updated information from the official website of the IRC network you wish to connect to)
+4. Setup the network in :menuselection:`ZoiteChat --> Network List`. (Note: use only the updated information from the official website of the IRC network you wish to connect to)
 
 Example:
 
@@ -157,4 +157,4 @@ Twitch.tv uses irc for chat so you can use a regular client for chat but it is a
 
 In the Network List add a new network and for the server use *irc.chat.twitch.tv* with SSL. You must have your nickname match your twitch account. For the login method choose *Server Password* and generate a password on this website `<http://twitchapps.com/tmi>`_
 
-To enhance your experience I recommend using the `twitch.lua <https://github.com/TingPing/plugins/blob/master/HexChat/twitch.lua>`_ script.
+To enhance your experience I recommend using the `twitch.lua <https://github.com/TingPing/plugins/blob/master/ZoiteChat/twitch.lua>`_ script.

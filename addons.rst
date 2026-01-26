@@ -1,11 +1,11 @@
 Addons
 ======
 
-HexChat ships with a handful of useful plugins that extend the functionality of the client. In order to auto-load custom ones you just place them in an :file:`addons` subdir within your `config folder <settings.html#config-files>`_, manually with :command:`/load` and :command:`/unload`, or with :menuselection:`Window --> Plugins and Scripts`.
+ZoiteChat ships with a handful of useful plugins that extend the functionality of the client. In order to auto-load custom ones you just place them in an :file:`addons` subdir within your `config folder <settings.html#config-files>`_, manually with :command:`/load` and :command:`/unload`, or with :menuselection:`Window --> Plugins and Scripts`.
 
 With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
 
-A list of many existing addons can be found at `https://github.com/hexchat/hexchat-addons <https://github.com/hexchat/hexchat-addons>`_.
+A list of many existing addons can be found at `https://github.com/zoitechat/zoitechat-addons <https://github.com/zoitechat/zoitechat-addons>`_.
 
 
 Exec
@@ -13,7 +13,7 @@ Exec
 
 The exec plugin provides the :command:`/exec` command for Windows. On Unix platforms there are built-in commands for this and this documentation does not apply to the behavior of those, see :command:`/help` for more information.
 
-With Exec you can perform commands as if you ran them in the command line. The output will be printed at once, in the end of execution. If the command takes more than 10 seconds to complete, it gets aborted to avoid locking down HexChat. Usage:
+With Exec you can perform commands as if you ran them in the command line. The output will be printed at once, in the end of execution. If the command takes more than 10 seconds to complete, it gets aborted to avoid locking down ZoiteChat. Usage:
 
 :command:`/exec ping google.com`
 

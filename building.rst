@@ -11,29 +11,29 @@ Download and install (in their default install paths):
 
 - `Visual Studio 2019 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
 - `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
-- `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.5.1.exe>`_
+- `Inno Download Plugin <https://dl.zoitechat.net/misc/idpsetup-1.5.1.exe>`_
 - `7-Zip <http://7-zip.org/>`_
-- `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
-- `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build\\WinSparkle*)
+- `gendef <https://dl.zoitechat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
+- `WinSparkle <https://dl.zoitechat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build\\WinSparkle*)
 
 
 Source code
 ~~~~~~~~~~~
 
-Download the `HexChat source code`_ and extract
-it to somewhere. You will work in the extracted *hexchat* folder from
+Download the `ZoiteChat source code`_ and extract
+it to somewhere. You will work in the extracted *zoitechat* folder from
 now.
 
-.. _HexChat source code: https://github.com/hexchat/hexchat/zipball/master
+.. _ZoiteChat source code: https://github.com/zoitechat/zoitechat/zipball/master
 
 GTK+
 ~~~~
 
 Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\gtk-build\\gtk* by default).
-Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
+Specify the absolute path to *YourDepsPath* in *win32\\zoitechat.props*
 with the *YourDepsPath* property. Download:
 
-- `GTK+ bundle <https://dl.hexchat.net/gtk>`_
+- `GTK+ bundle <https://dl.zoitechat.net/gtk>`_
 
 Extract them to *Win32* and *x64* in *YourDepsPath*.
 
@@ -56,11 +56,11 @@ Download:
 -  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
 -  Python_ 3.6 x64 (install to *C:\\gtk-build\\python-3.6\\x64*)
 
-.. _Perl: https://dl.hexchat.net/misc/perl/
+.. _Perl: https://dl.zoitechat.net/misc/perl/
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
-in *win32\\hexchat.props* accordingly.
+in *win32\\zoitechat.props* accordingly.
 
 Building
 ~~~~~~~~
@@ -72,13 +72,13 @@ Open PowerShell as administrator and run::
 - If you're on 32-bit Windows, this is *C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe*
 - If you're on 64-bit Windows, this is *C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe* (notice that this is the 32-bit PowerShell executable)
 
-Open *win32\\hexchat.sln*, right click on the *release/installer* (or
+Open *win32\\zoitechat.sln*, right click on the *release/installer* (or
 *release/copy* if you skipped the language interfaces) project and set
 it as the startup project. Now you can compile from under the *Build*
 menu to your taste.
 
 If everything went fine, the resulting binaries will be found in
-*hexchat-build\\Win32* and/or *hexchat-build\\x64*. It was easy, wasn't
+*zoitechat-build\\Win32* and/or *zoitechat-build\\x64*. It was easy, wasn't
 it?
 
 Unix
@@ -90,17 +90,17 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep hexchat && dnf install python3-cffi
+- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep zoitechat && dnf install python3-cffi
 - apt: apt-get install -y meson libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libluajit-5.1-dev libpci-dev libperl-dev libssl-dev python3-dev python3-cffi desktop-file-utils
 
-HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
+ZoiteChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
 basically:
 
 .. code-block:: bash
 
-    git clone https://github.com/hexchat/hexchat.git
-    cd hexchat
+    git clone https://github.com/zoitechat/zoitechat.git
+    cd zoitechat
     meson build
     ninja -C build
     sudo ninja -C build install
@@ -111,7 +111,7 @@ about flags.
 Building Theme Manager
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The theme manager isn't built by default on Unix. To do so get hexchat's source as mentioned above and install MonoDevelop with your package manager of choice then run this:
+The theme manager isn't built by default on Unix. To do so get zoitechat's source as mentioned above and install MonoDevelop with your package manager of choice then run this:
 
 .. code-block:: bash
 
@@ -129,7 +129,7 @@ OS X
 JHBuild
 ~~~~~~~
 
-JHBuild allows you to build the entire stack required by HexChat.
+JHBuild allows you to build the entire stack required by ZoiteChat.
 It uses the quartz backend as well as a more native theme.
 It can be more hands on and complex than the automated Homebrew method.
 
@@ -140,16 +140,16 @@ It can be more hands on and complex than the automated Homebrew method.
     Some of these builds may fail and require dropping to a shell to fix them.
     Most are trivial but the packages are always changing so you are on your own.
 
-Once everything is set up we can build hexchat:
+Once everything is set up we can build zoitechat:
 
 .. code-block:: bash
 
-    git clone https://github.com/hexchat/hexchat.git && cd hexchat
+    git clone https://github.com/zoitechat/zoitechat.git && cd zoitechat
     ./autogen.sh --prefix=$JHBUILD_PREFIX
     make && make install
-    hexchat
+    zoitechat
 
-If you want to make the HexChat.app bundle it will take some more work.
+If you want to make the ZoiteChat.app bundle it will take some more work.
 
 1. Follow the instructions on Gnome's site for `Bundling on OSX`_
 2. Build and install these packages
