@@ -174,7 +174,11 @@
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap.css' , 1) }}" type="text/css" />
 <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
 {%- for cssfile in css_files %}
-<link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- if cssfile is string -%}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- else -%}
+    {{ css_tag(cssfile) }}
+  {%- endif -%}
 {%- endfor %}
 {%- if (not theme_noresponsive|tobool) and theme_bootstrap_version == "2" %}
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap2/bootstrap-responsive.min.css', 1) }}" type="text/css" />
