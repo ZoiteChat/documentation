@@ -1,6 +1,37 @@
 ZoiteChat ChangeLog
 =================
 
+2.17.3 (2026-01-17)
+-------------------
+
+SNI Extension Handling
+- Added RFC 6066-compliant validation to ensure SNI host names are ASCII-only and not IP literals before setting SNI on SSL connections. 
+- Emit an SSL message when an invalid SNI host name is skipped to aid troubleshooting.
+-  Integrated theme functionality in preferences.  Removed Theme Manager application. 
+-  Added colour Emoji support / selector menu. 
+- Changed Python version to v3.14.2
+- Fixed newline issue causing issues when syncing Windows/Linux server list files. 
+
+Issues with current build
+- When opening a theme file (.zct or .hct file).  ZoiteChat will open a new instance and then import the theme. So importing works but leaves a window you need to close afterwards. 
+- Emojis only show colour in all builds except Windows.   Having issues with GTk2 in windows showing colour emojis. 
+
+2.17.2 (2026-01-13)
+-------------------
+
+- Improved Auto Replace functionality.  
+
+2.17.1 (2026-01-13)
+-------------------
+
+- Feature/dark mode toggle by @deepend-tildeclub in https://github.com/ZoiteChat/zoitechat/pull/3
+
+2.17.0 (2026-01-07)
+-------------------
+
+- Currently Flatpak and Windows only. Debian in progress.
+- Flatpak does not include the Python plugin due to issues.  (Windows version unaffected by this issue)
+
 2.16.2 (2024-02-07)
 -------------------
 
