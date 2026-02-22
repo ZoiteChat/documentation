@@ -2,10 +2,10 @@
 
 ## Getting started
 
-* Install [Python](http://www.python.org/) (tested with 2.7.x)
-* Install [Python pip](http://www.pip-installer.org/en/latest/installing.html#alternative-installation-procedures)
-* Install Sphinx: `pip install Sphinx`
-* On Windows: `SET PATH=C:\Python27;C:\Python27\Scripts;%PATH%`
+* Install [Python 3](https://www.python.org/)
+* Install pip for Python 3
+* Install Sphinx: `python -m pip install sphinx`
+* On Windows: ensure your Python 3 installation is on `PATH`
 * Run `make html` to build the HTML files
 * Run the Python webserver to test your changes: `make server`
   (http://localhost:8000/)

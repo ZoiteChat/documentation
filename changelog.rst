@@ -1,6 +1,11 @@
 ZoiteChat ChangeLog
 =================
 
+2.18.0 (upcoming)
+-----------------
+
+- Pending release notes.
+
 2.17.3 (2026-01-17)
 -------------------
 
