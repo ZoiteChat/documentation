@@ -6,6 +6,26 @@ ZoiteChat ChangeLog
 
 - Pending release notes.
 
+
+2.18.0~pre2 (2026-02-25)
+------------------------
+
+- Added HexChat plugin compatibility improvements.
+- Fixed the user info right-click menu so it updates properly.
+- Added support for emoji characters in alert highlights.
+- clicking links in chat window with appimage build now works.
+- Removed remaining unused GTK2 code paths.
+- Continued GTK3 cleanup and packaging alignment work.
+
+2.18.0-pre1 (2026-02-16)
+------------------------
+
+- Switched Debian packaging/builds to GTK 3 (Build-Depends, Meson flags, and package metadata).
+- Added Debian package split install manifests so files are assigned to the correct binary packages.
+- Fixed Debian packaging coverage for the man page and MIME XML to avoid unassigned-file (dh_missing) failures.
+- Updated Debian CI packaging workflow and artifact upload paths for actions/upload-artifact@v4 compatibility.
+- Improved GTK3 font consistency by applying the configured input font to channel tree and user list theming paths.
+
 2.17.3 (2026-01-17)
 -------------------
 
