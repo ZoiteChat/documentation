@@ -74,19 +74,20 @@ Please bear in mind that for some reason certain fonts that can display a certai
 Client Certificates
 -------------------
 
-Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now ZoiteChat can't do it.
+Client certificates identify you to IRC network services. This is separate from accepting invalid server certificates.
 
-To use one you need to put your certificate file inside :file:`certs` directory in ZoiteChat's `config folder <settings.html#config-files>`_.
+Use the network list dialog to configure client certification for each network:
 
-Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*. If that does not exist every network will try *client.pem*. It can not be encrypted and require a password.
+#. Open :menuselection:`Network List`.
+#. Select a network and click :menuselection:`Edit`.
+#. In the client SSL cert area, use the buttons shown for your current state:
 
-An example of creating a cert on unix: 
-
-.. code-block:: sh
-
-    openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout ~/.config/zoitechat/certs/client.pem -out ~/.config/zoitechat/certs/client.pem
+   - Use :menuselection:'Generate client SSL cert' to create a new certificate for that network, or :menuselection:'Import client SSL cert' to copy an existing one.
+   - If a certificate already exists, use :menuselection:'Client SSL cert info' to inspect it or :menuselection:'Delete cert' to remove it.
 
 On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
+
+#. Save the network settings and reconnect.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
