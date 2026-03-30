@@ -6,9 +6,8 @@ ZoiteChat ChangeLog
 
 - Pending release notes.
 
-## 2.18.0 (upcoming)
-
 2.18.0~pre6 (2026-03-30)
+------------------------
 
 - Applied app theme CSS to the menubar consistently across the app.
 - Restored horizontal separator lines in menus.
