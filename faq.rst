@@ -1,32 +1,25 @@
 Frequently Asked Questions
 ==========================
 
-How do I migrate my settings from XChat?
+How do I migrate my settings from HexChat?
 ----------------------------------------
 
-.. Caution:: This is generally not recommended. Some issues that may arise are
-   mentioned here: https://github.com/zoitechat/zoitechat/pull/1794#issuecomment-240102695
+.. Caution:: This is not officially supported. Some things will work and others may not. You have been warned.
 
 - Unix
 
-  1. Copy ``~/.xchat2`` to ``~/.config/zoitechat``
-  2. Rename ``~/.config/zoitechat/xchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
-  3. Rename ``~/.config/zoitechat/servlist_.conf`` to ``~/.config/zoitechat/servlist.conf``
-  4. Rename ``~/.config/zoitechat/xchatlogs`` to ``~/.config/zoitechat/logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
-  6. Move all your client certs to ``~/.config/zoitechat/certs``
+  1. Copy ``~/.hexchat`` to ``~/.config/zoitechat``
+  2. Rename ``~/.config/hexchat/hexchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
+  3. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
+  4. Move all your client certs to ``~/.config/zoitechat/certs``
 
 - Windows
 
-  1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\ZoiteChat``
-  2. Rename ``%APPDATA%\ZoiteChat\xchat.conf`` to ``%APPDATA%\ZoiteChat\zoitechat.conf``
-  3. Rename ``%APPDATA%\ZoiteChat\servlist_.conf`` to ``%APPDATA%\ZoiteChat\servlist.conf``
-  4. Rename ``%APPDATA%\ZoiteChat\xchatlogs`` to ``%APPDATA%\ZoiteChat\logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\ZoiteChat\addons``
-  6. Move all your client certs to ``%APPDATA%\ZoiteChat\certs``
+  1. Copy ``%APPDATA%\HexChat`` to ``%APPDATA%\ZoiteChat``
+  2. Rename ``%APPDATA%\HexChat\hexchat.conf`` to ``%APPDATA%\ZoiteChat\zoitechat.conf``
+  3. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\ZoiteChat\addons``
+  4. Move all your client certs to ``%APPDATA%\ZoiteChat\certs``
 
-The server list format also changed, instead of a giant autojoin list formatted ``J=chan1,chan2 key1,key2``
-it is now formatted on seperate lines ``J=chan1,key1\nJ=chan2,key2``
 
 
 How do I autoconnect and join a channel on start?
