@@ -87,7 +87,7 @@ Use the network list dialog to configure client certification for each network:
 
 On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
 
-#. Save the network settings and reconnect.
+   - Save the network settings and reconnect.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
