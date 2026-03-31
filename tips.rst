@@ -78,16 +78,16 @@ Client certificates identify you to IRC network services. This is separate from 
 
 Use the network list dialog to configure client certification for each network:
 
-#. Open :menuselection:`Network List`.
-#. Select a network and click :menuselection:`Edit`.
+#. Open :menuselection:`ZoiteChat --> Network List`.
+#. Select a network and click :command:`Edit`.
 #. In the client SSL cert area, use the buttons shown for your current state:
 
-   - Use :menuselection:'Generate client SSL cert' to create a new certificate for that network, or :menuselection:'Import client SSL cert' to copy an existing one.
-   - If a certificate already exists, use :menuselection:'Client SSL cert info' to inspect it or :menuselection:'Delete cert' to remove it.
+   - Use :command:`Generate client SSL cert` to create a new certificate for that network, or :command:`Import client SSL cert` to copy an existing one.
+   - If a certificate already exists, use :command:`Client SSL cert info` to inspect it or :command:`Delete cert` to remove it.
 
 On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
 
-   - Save the network settings and reconnect.
+4. Save the network settings and reconnect.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
