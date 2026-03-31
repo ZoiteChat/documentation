@@ -204,9 +204,13 @@ means the plugin or language for running those scripts isn't loaded.
 
 - On Unix install the packages including these plugins (e.g. zoitechat-perl) and perl.
 
-  - If you are missing Lua your distro may not have ZoiteChat 2.12.1
-
 - On Windows select the plugins in the installer.
+
+.. note::
+  ZoiteChat on Windows is tied to specific versions of Python, Perl, and Lua at compile time.
+  If you already have the script runtime installed and you still see this error, you most likely
+  need to install an older version. This should be listed in the `changelog <changelog.html>`_ or
+  come to **#zoitechat** on Libera.Chat or Zoite and ask!
 
 How do I play sound files on certain events?
 --------------------------------------------
