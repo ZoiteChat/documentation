@@ -34,7 +34,7 @@ You can remove the key with:
 Update Checker
 --------------
 
-Automatically checks for updates available. Can be manually checked via :menuselection:`Help --> Check for Updates` or by the command:
+Windows only. Automatically checks for available updates. Can also be manually checked via :menuselection:`Help --> Check for Updates` or by the command:
 
 :command:`/updchk`
 
