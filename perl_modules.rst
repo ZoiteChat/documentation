@@ -1,6 +1,8 @@
 Building Perl modules on Windows
 ================================
 
+.. note:: These instructions are untested, and kept here for reference only. If you have the knowledge to update this page, patches are welcome!
+
 CPAN
 ----
 
