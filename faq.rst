@@ -142,13 +142,15 @@ How do I hide join and part messages?
 -------------------------------------
 
 To disable joins and parts from being displayed in all channels check 'Hide join and part messages' under
-:menuselection:`Settings -> Preferences -> Chatting -> General` (Advanced pre-2.9.6)'.
+:menuselection:`Settings -> Preferences -> Chatting -> General`.
 
 Then all channels you join **after** setting this will start with "Show
 join/part messages" turned off.
 
 To disable the prints for only certain channels, right click on the channel tab and click
-:menuselection:`Settings -> Hide Join/Part Messages`
+:menuselection:`Settings -> Hide Join/Part Messages`.
+
+There are also addons to help with this, for instance `TingPing's Smart Parts script <https://github.com/TingPing/plugins/blob/master/HexChat/smartparts.lua>`_ which only shows join and part messages from active users.
 
 Why doesn't DCC send work behind a router?
 ------------------------------------------
