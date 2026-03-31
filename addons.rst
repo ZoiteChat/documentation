@@ -61,5 +61,5 @@ Displays your currently playing song via :menuselection:`Window --> Display Curr
 :command:`/winamp`
 
 .. note::
-
-    Foobar2000 can also be used with the `foo_winamp_spam <https://github.com/RazielZ/foo_winamp_spam>`_ plugin.
+    - Windows-only and untested, but may work
+    - Foobar2000 can also be used with the `foo_winamp_spam <https://github.com/RazielZ/foo_winamp_spam>`_ plugin.
