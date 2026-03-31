@@ -61,23 +61,19 @@ How do I change what browser is opened?
 
 - Unix:
 
-  - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
-  - Other DE's have their own settings that may or may not work.
+  - Gnome: :menuselection:`Settings --> Apps --> Default Apps`
+  - Plasma: :menuselection:`System Settings --> Apps & Windows --> Default Applications`
+  - Other DEs should have their own settings in a similar location.
 
   If these do not work or you do not use a DE use the command :command:`gio`::
 
       gio mime x-scheme-handler/http firefox.desktop
       gio mime x-scheme-handler/https firefox.desktop
 
-  If you use an older distro that doesn't have the :command:`gio` command you can install :command:`gvfs-mime`::
-  
-      gvfs-mime --set x-scheme-handler/http firefox.desktop
-      gvfs-mime --set x-scheme-handler/https firefox.desktop
-
-  Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
+  Upon launching it will use the *Exec* line in the desktop file replacing *%u* with the url.
   If you get a blank window this is where the problem is.
 
-Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
+Alternatively you can add a `Url Handler <settings.html#url-handlers>`_.
 
 
 How do I connect through a proxy?
