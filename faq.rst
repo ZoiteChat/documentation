@@ -280,14 +280,14 @@ getting larger.
 Go to :menuselection:`Settings --> Preferences --> Logging` and change the
 log filename to any one of these::
 
-    %Y-%m-%d/%n-%c.log -> 2006-12-30/FreeNode-#channel.log
+    %Y-%m-%d/%n-%c.log -> 2026-12-30/Libera.Chat-#channel.log
 
-    %n/%Y-%m-%d/%c.log -> FreeNode/2006-12-30/#channel.log
+    %n/%Y-%m-%d/%c.log -> Libera.Chat/2026-12-30/#channel.log
 
-    %n/%c.log -> FreeNode/#channel.log (no rotation)
+    %n/%c.log -> Libera.Chat/#channel.log (no rotation)
 
 %Y, %m and %d represents the current year, month and day respectively.
-%n is the network name, e.g. "FreeNode" or "UnderNet", and finally, %c
+%n is the network name, e.g. "Libera.Chat" or "Zoite", and finally, %c
 is the channel. In these examples, a new log filename and folder would
 be created after midnight.
 
