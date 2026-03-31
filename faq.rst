@@ -243,7 +243,6 @@ ZoiteChat includes support for a tray icon which can be enabled in
 :menuselection:`Settings --> Preferences --> Alerts`.
 
 If that option does not appear then ZoiteChat could not detect a usable tray.
-Some desktops such as GNOME require an `extension <https://extensions.gnome.org/extension/615/appindicator-support/>`_ for this.
 
 How do I start ZoiteChat with...?
 -------------------------------
