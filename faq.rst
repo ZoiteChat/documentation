@@ -44,12 +44,13 @@ Why are channels joined before identifying?
 
 There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (ZoiteChats default network list tries to use the best method by default, don't change it):
 
-- Use SASL which can be enabled in :menuselection:`ZoiteChat --> Network list --> Edit` (2.9.4+).
+- Use SASL which can be enabled in :menuselection:`ZoiteChat --> Network list --> Edit`.
   Note that your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
-- Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
+- Use a `client certificate <tips.html#client-certificates>`_.
 
-- Use a `client cert <tips.html#client-certificates>`_ which requires the most setup.
+- Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`. This is not recommended but may be the only option on some older networks.
+
 
 How do I change what browser is opened?
 ---------------------------------------
