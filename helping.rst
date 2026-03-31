@@ -1,15 +1,6 @@
 How to Help
 ===========
 
-Translation
------------
-
-Translation is handled by `Transifex <https://www.transifex.com/projects/p/zoitechat/>`_. Simply register on the site and apply for membership to a translation team for your language. Approval may take some time.
-
-.. note::
-
-    Your Transifex email will be public in the created files.
-
 Documentation
 -------------
 
