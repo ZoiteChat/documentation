@@ -19,11 +19,11 @@ ZoiteChat comes with spellcheck already installed. To use additional dictionarie
 Unix
 ~~~~
 
-Install enchant and your spelling dictionaries via your package manager (myspell-en-us on the Debians or hunspell-en-US everywhere else for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
+ZoiteChat comes with spellcheck already installed and enabled by default on most platforms.
 
-In 2.10.0+ you can then list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
+.. note:: If it's missing, install enchant and your spelling dictionaries via your package manager (e.g. hunspell-en-us for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-In older versions the language can be overriden by starting ZoiteChat with "*LANG=en_US zoitechat*" (You can edit your zoitechat.desktop file to do this every launch)
+You can list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
 
 Localization
 ------------
