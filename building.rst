@@ -108,16 +108,6 @@ basically:
 This will compile with defaults. See ``meson configure build`` for more info
 about flags.
 
-Building Theme Manager
-~~~~~~~~~~~~~~~~~~~~~~
-
-The theme manager isn't built by default on Unix. To do so get zoitechat's source as mentioned above and install MonoDevelop with your package manager of choice then run this:
-
-.. code-block:: bash
-
-    meson configure build -Dtheme-manager=true
-    ninja -C build
-    sudo ninja -C build install
 
 OS X
 ----
