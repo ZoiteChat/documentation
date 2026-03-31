@@ -340,6 +340,10 @@ press `Space` or `Return`, and the glyph will appear as well.
 
 .. Note:: Windows alt codes will not work.
 
+The input box now also has a unicode selector, visible on the right side as a |face| (smile face) emoji.
+
+.. |face| unicode:: U+263B
+
 How do I add a network to the official list?
 --------------------------------------------
 
