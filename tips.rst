@@ -9,24 +9,10 @@ Windows
 
 .. image:: _static/img/tips_spellcheck.png
 
-If you want to have spelling, do the following:
+ZoiteChat comes with spellcheck already installed. To use additional dictionaries, add them to Windows:
 
-1.
- - If on Windows 7 select the spelling dictionaries in the installer.
- - For Windows 8+ dictionaries are obtained through the OS.
-2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, ZoiteChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
-
-.. note::
-
-    For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
-    
-Windows 10
-~~~~~~~~~~
-
-ZoiteChat comes with the spell check already installed, but installing dictionaries is slightly different.
-
-1. In Windows, go to Start -> Settings -> Time & Language -> Region & Language.
-2. Add a new language(s).
+1. In the Start menu, go to :menuselection:`Settings -> Time & Language -> Region & Language`.
+2. Add new language(s).
 3. Restart ZoiteChat.
 
 
