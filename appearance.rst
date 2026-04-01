@@ -1,28 +1,36 @@
 Appearance
 ==========
 
-Theme Files
------------
-
-We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can *extract* manually into your `config folder <settings.html#config-files>`_ with ZoiteChat closed. Some themes can be found `here <https://dl.zoitechat.net/themes/>`_.
-
-On unix for example you can extract these with this command while ZoiteChat is closed:
-
-    unzip ~/Downloads/monokai.hct -d ~/.config/zoitechat
-
-The theme manager is an optional external application, which is included with the `installer <https://zoitechat.github.io/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that simply helps install themes.
-
 Theming
 -------
+
+Gtk Theme
+~~~~~~~~~
+
+Starting with version 2.18.0, ZoiteChat uses GTK 3. Theming is handled differently than it was in 2.17.x, HexChat, or X-Chat 2.
+
+On Unix, the default is your system GTK theme. You can change the theme ZoiteChat uses in :menuselection:`Settings --> Preferences --> Appearance --> GTK3 theme`. Themes can be imported here too, which will only be available for ZoiteChat.
+Themes installed via your system package manager or desktop environment control panel will also be available for ZoiteChat, as well as the rest of your GTK3 applications.
+
+On Windows, the default theme is `Redstone <https://www.opendesktop.org/p/1013482/>`_ which is bundled with the ZoiteChat installer. In :menuselection:`Settings --> Preferences --> Appearance --> GTK3 theme`, you can import other themes as well, just like on Unix.
+
+On both platforms, the theme selection drop down will show (user) for themes installed through ZoiteChat and (system) for system themes.
+
+GTK 3 themes can be found on `openDesktop <https://www.opendesktop.org/browse?cat=135>`_ and other places like github. Any theme should work as long as it supports GTK 3.20 or higher.
 
 Colors
 ~~~~~~
 
-Colors are defined in :menuselection:`Settings --> Preferences --> Colors`. Text Colors set the palette for events to use. The rest like background color directly affect parts of the UI.
+Colors are defined in :menuselection:`Settings --> Preferences --> Appearance --> Manage all client colors`. Text Colors set the palette for events to use. The rest like background color directly affect parts of the UI.
 
 `mIRC <http://www.mirc.com/colors.html>`_ colors (00-15) are what you refer to when sending colored text over IRC for others to see and vice versa, because of this they should somewhat follow a set of standards so clients can agree 04 is red.
 
-Local colors (16-31) are to be used by ZoiteChat only and can be anything you wish, these are typically what you use in your `events <appearance.html#text-events>`_.
+Local colors (16-31) can be changed to anything you wish, for instance to use in `text events <appearance.html#text-events>`_. However, ZoiteChat also supports the later `99 colors <https://modern.ircdocs.horse/formatting.html#colors-16-98>`_ standard so if you change the 16-31 colors it may conflict with that.
+
+HexChat and X-Chat 2 supported color scheme "themes" as :file:`.hct` files, which are ZIP archives. Some of them are available from `HexChat Themes <https://hexchat.github.io/themes.html>`_, and you may have managed them with the discontinued Theme Manager.
+
+If you want to use a HexChat/X-Chat theme, open the :file:`.hct` file in an application like 7-Zip or Ark and extract :file:`colors.conf`. Then go to :menuselection:`Settings --> Preferences --> Appearance --> Import colors.conf colors` to import it.
+If the archive includes :file:`pevents.conf`, that can go in your `config folder <settings.html#config-files>`_ but may not work the same way it did in HexChat.
 
 Text Events
 ~~~~~~~~~~~
@@ -48,7 +56,7 @@ Text events control the look of every event you see. They can be customized in :
 Icons
 ~~~~~
 
-ZoiteChat comes with built in icons for the tray, user list, and channel tree (which can be disabled in Preferences). You can use `custom icons <https://dl.zoitechat.net/themes/icons/>`_ by placing icons (16x16 recommended) in an :file:`icons` subdir, which may need to be created, within your `config folder <settings.html#config-files>`_. The icons must be named exactly as follows including file extensions:
+ZoiteChat comes with built in icons for the tray, user list, and channel tree (which can be disabled in Preferences). You can use custom icons by placing png icons (16x16 recommended) in an :file:`icons` subdir, which may need to be created, within your `config folder <settings.html#config-files>`_. The icons must be named exactly as follows including file extensions:
 
 - User List
 
@@ -74,33 +82,7 @@ ZoiteChat comes with built in icons for the tray, user list, and channel tree (w
   - tray_message.png
   - zoitechat.png
 
-Gtk Theme
-~~~~~~~~~
 
-To customize more than just text color such as the window borders you must install a gtk theme.
-
-GTK themes can be either installed globally (changing all gtk2 applications) or to ZoiteChat specifically.
-
-On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
-that will not be shown here.
-
-On Windows application specific themes on Windows requires write permissions to ZoiteChat's install dir (e.g. in Program Files). Global themes
-are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
-
-The only requirement for themes on Windows is that they are for gtk2 and they use the Pixbuf engine. Themes
-requiring other engines will work but not look correct. ZoiteChat has also only shipped this engine
-since 2.10.0. If you use < 2.12.0 you need to install ZoiteChat with the *Gtk theme* option unchecked as this will
-avoid the installer overwriting it on updates.
-
-This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
-Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zips are on the releases page.
-
-Note that *<installdir>* refers to the full path where ZoiteChat is installed which by default is *C:\\Program Files\\ZoiteChat*. Also these directories may need to be created.
-
-1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
-2. Extract contents of *vertex-theme\\common\\gtk-2.0-dark\\* into this directory.
-3. Create an empty file at *<installdir>\\etc\\gtk-2.0\\gtkrc* (with no file extension!)
-4. Edit it and add ``gtk-theme-name = "vertex"``
 
 Buttons, Menus, and Popups
 --------------------------
@@ -111,7 +93,7 @@ Userlist Popup
 Popups are shown when you right click on a nickname, either in the userlist or in the main chat itself. These can be edited in :menuselection:`Settings --> Userlist Popup`
 
 The Name column can take either just the name of the entry, *SUB*/*ENDSUB* for submenus, *SEP* for separators, and *TOGGLE* for toggleable options.
-Suffix the name with *~GTK_ICON_NAME~* to show an icon (see `Gtk Stock Items <https://developer.gnome.org/gtk2/stable/gtk2-Stock-Items.html>`_) and prefix a character with *_* for keyboard shortcuts (e.g. N_ame will bind a).
+Prefix a character with *_* for keyboard shortcuts (e.g. N_ame will bind a).
 
 The Command column can take any `command <commands.html>`_ with text formatted using the same codes as `text events <appearance.html#text-events>`_ and on top of that they also have their own codes:
 
@@ -122,16 +104,16 @@ The Command column can take any `command <commands.html>`_ with text formatted u
 - **%n** your nickname
 - **%s** selected nickname
 - **%t** time/date
-- **%u** selected nick's account (2.9.6+)
+- **%u** selected nick's account
 
-As a sidenote the **gui_ulist_doubleclick** setting can run a command using these codes when double-clicking a nick in the userlist.
+The **gui_ulist_doubleclick** setting can run a command using these codes when double-clicking a nick in the userlist.
 
 Userlist Buttons
 ~~~~~~~~~~~~~~~~
 
-Buttons are shown below the userlist, can be edited in :menuselection:`Settings --> Userlist Buttons`, and take the same syntax as `Userlist Popup <appearance.html#userlist-popup>`_ for commands.
+Buttons are shown below the userlist, can be edited in :menuselection:`Settings --> Userlist Buttons`, and take the same syntax as Userlist Popups.
 
 Usermenu
 ~~~~~~~~
 
-In order to add custom entries to your menu you need to first enable the usermenu with the command :command:`/set gui_usermenu on` which may require a restart. Once this is enabled you can go to :menuselection:`Usermenu --> Edit this Menu` to add any `command <commands.html>`_  you would like. For menu entries it supports the same as `Userlist Popups <appearance.html#userlist-popup>`_.
+In order to add custom entries to your menu you need to first enable the usermenu with the command :command:`/set gui_usermenu on` which may require a restart. Once this is enabled you can go to :menuselection:`Usermenu --> Edit this Menu` to add any `command <commands.html>`_  you would like. For menu entries it supports the same syntax as Userlist Popups.
