@@ -5,7 +5,7 @@ ZoiteChat ships with a handful of useful plugins that extend the functionality o
 
 With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
 
-A directory of existing ZoiteChat addons can be found at `https://zoitechat.org/addons.php <https://https://zoitechat.org/addons.php>`_. In addition, since ZoiteChat is based on HexChat, most HexChat and many X-Chat 2 scripts and addons are compatible too, as long as they are written in a `supported scripting language <developers.html>`_.
+A directory of existing ZoiteChat addons can be found at `https://zoitechat.org/addons.php <https://zoitechat.org/addons.php>`_. In addition, since ZoiteChat is based on HexChat, most HexChat and many X-Chat 2 scripts and addons are compatible too, as long as they are written in a `supported scripting language <developers.html>`_.
 
 
 Exec
