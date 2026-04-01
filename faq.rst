@@ -1,32 +1,25 @@
 Frequently Asked Questions
 ==========================
 
-How do I migrate my settings from XChat?
+How do I migrate my settings from HexChat?
 ----------------------------------------
 
-.. Caution:: This is generally not recommended. Some issues that may arise are
-   mentioned here: https://github.com/zoitechat/zoitechat/pull/1794#issuecomment-240102695
+.. Caution:: This is not officially supported. Some things will work and others may not. You have been warned.
 
 - Unix
 
-  1. Copy ``~/.xchat2`` to ``~/.config/zoitechat``
-  2. Rename ``~/.config/zoitechat/xchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
-  3. Rename ``~/.config/zoitechat/servlist_.conf`` to ``~/.config/zoitechat/servlist.conf``
-  4. Rename ``~/.config/zoitechat/xchatlogs`` to ``~/.config/zoitechat/logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
-  6. Move all your client certs to ``~/.config/zoitechat/certs``
+  1. Copy ``~/.config/hexchat`` to ``~/.config/zoitechat``
+  2. Rename ``~/.config/hexchat/hexchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
+  3. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
+  4. Move all your client certs to ``~/.config/zoitechat/certs``
 
 - Windows
 
-  1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\ZoiteChat``
-  2. Rename ``%APPDATA%\ZoiteChat\xchat.conf`` to ``%APPDATA%\ZoiteChat\zoitechat.conf``
-  3. Rename ``%APPDATA%\ZoiteChat\servlist_.conf`` to ``%APPDATA%\ZoiteChat\servlist.conf``
-  4. Rename ``%APPDATA%\ZoiteChat\xchatlogs`` to ``%APPDATA%\ZoiteChat\logs``
-  5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\ZoiteChat\addons``
-  6. Move all your client certs to ``%APPDATA%\ZoiteChat\certs``
+  1. Copy ``%APPDATA%\HexChat`` to ``%APPDATA%\ZoiteChat``
+  2. Rename ``%APPDATA%\HexChat\hexchat.conf`` to ``%APPDATA%\ZoiteChat\zoitechat.conf``
+  3. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\ZoiteChat\addons``
+  4. Move all your client certs to ``%APPDATA%\ZoiteChat\certs``
 
-The server list format also changed, instead of a giant autojoin list formatted ``J=chan1,chan2 key1,key2``
-it is now formatted on seperate lines ``J=chan1,key1\nJ=chan2,key2``
 
 
 How do I autoconnect and join a channel on start?
@@ -51,12 +44,13 @@ Why are channels joined before identifying?
 
 There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (ZoiteChats default network list tries to use the best method by default, don't change it):
 
-- Use SASL which can be enabled in :menuselection:`ZoiteChat --> Network list --> Edit` (2.9.4+).
+- Use SASL which can be enabled in :menuselection:`ZoiteChat --> Network list --> Edit`.
   Note that your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
-- Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
+- Use a `client certificate <tips.html#client-certificates>`_.
 
-- Use a `client cert <tips.html#client-certificates>`_ which requires the most setup.
+- Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`. This is not recommended but may be the only option on some older networks.
+
 
 How do I change what browser is opened?
 ---------------------------------------
@@ -67,23 +61,19 @@ How do I change what browser is opened?
 
 - Unix:
 
-  - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
-  - Other DE's have their own settings that may or may not work.
+  - Gnome: :menuselection:`Settings --> Apps --> Default Apps`
+  - Plasma: :menuselection:`System Settings --> Apps & Windows --> Default Applications`
+  - Other DEs should have their own settings in a similar location.
 
   If these do not work or you do not use a DE use the command :command:`gio`::
 
       gio mime x-scheme-handler/http firefox.desktop
       gio mime x-scheme-handler/https firefox.desktop
 
-  If you use an older distro that doesn't have the :command:`gio` command you can install :command:`gvfs-mime`::
-  
-      gvfs-mime --set x-scheme-handler/http firefox.desktop
-      gvfs-mime --set x-scheme-handler/https firefox.desktop
-
-  Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
+  Upon launching it will use the *Exec* line in the desktop file replacing *%u* with the url.
   If you get a blank window this is where the problem is.
 
-Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
+Alternatively you can add a `Url Handler <settings.html#url-handlers>`_.
 
 
 How do I connect through a proxy?
@@ -152,13 +142,15 @@ How do I hide join and part messages?
 -------------------------------------
 
 To disable joins and parts from being displayed in all channels check 'Hide join and part messages' under
-:menuselection:`Settings -> Preferences -> Chatting -> General` (Advanced pre-2.9.6)'.
+:menuselection:`Settings -> Preferences -> Chatting -> General`.
 
 Then all channels you join **after** setting this will start with "Show
 join/part messages" turned off.
 
 To disable the prints for only certain channels, right click on the channel tab and click
-:menuselection:`Settings -> Hide Join/Part Messages`
+:menuselection:`Settings -> Hide Join/Part Messages`.
+
+There are also addons to help with this, for instance `TingPing's Smart Parts script <https://github.com/TingPing/plugins/blob/master/HexChat/smartparts.lua>`_ which only shows join and part messages from active users.
 
 Why doesn't DCC send work behind a router?
 ------------------------------------------
@@ -212,9 +204,13 @@ means the plugin or language for running those scripts isn't loaded.
 
 - On Unix install the packages including these plugins (e.g. zoitechat-perl) and perl.
 
-  - If you are missing Lua your distro may not have ZoiteChat 2.12.1
-
 - On Windows select the plugins in the installer.
+
+.. note::
+  ZoiteChat on Windows is tied to specific versions of Python, Perl, and Lua at compile time.
+  If you already have the script runtime installed and you still see this error, you most likely
+  need to install an older version. This should be listed in the `changelog <changelog.html>`_ or
+  come to **#zoitechat** on Libera.Chat or Zoite and ask!
 
 How do I play sound files on certain events?
 --------------------------------------------
@@ -247,7 +243,6 @@ ZoiteChat includes support for a tray icon which can be enabled in
 :menuselection:`Settings --> Preferences --> Alerts`.
 
 If that option does not appear then ZoiteChat could not detect a usable tray.
-Some desktops such as GNOME require an `extension <https://extensions.gnome.org/extension/615/appindicator-support/>`_ for this.
 
 How do I start ZoiteChat with...?
 -------------------------------
@@ -285,14 +280,14 @@ getting larger.
 Go to :menuselection:`Settings --> Preferences --> Logging` and change the
 log filename to any one of these::
 
-    %Y-%m-%d/%n-%c.log -> 2006-12-30/FreeNode-#channel.log
+    %Y-%m-%d/%n-%c.log -> 2026-12-30/Libera.Chat-#channel.log
 
-    %n/%Y-%m-%d/%c.log -> FreeNode/2006-12-30/#channel.log
+    %n/%Y-%m-%d/%c.log -> Libera.Chat/2026-12-30/#channel.log
 
-    %n/%c.log -> FreeNode/#channel.log (no rotation)
+    %n/%c.log -> Libera.Chat/#channel.log (no rotation)
 
 %Y, %m and %d represents the current year, month and day respectively.
-%n is the network name, e.g. "FreeNode" or "UnderNet", and finally, %c
+%n is the network name, e.g. "Libera.Chat" or "Zoite", and finally, %c
 is the channel. In these examples, a new log filename and folder would
 be created after midnight.
 
@@ -344,6 +339,10 @@ press `Space` or `Return`, and the glyph will appear as well.
 .. image:: _static/img/faq_unicode_2.png
 
 .. Note:: Windows alt codes will not work.
+
+The input box now also has a unicode selector, visible on the right side as a |face| (smile face) emoji.
+
+.. |face| unicode:: U+263B
 
 How do I add a network to the official list?
 --------------------------------------------

@@ -13,23 +13,19 @@ Here are some of the features of the python plugin interface:
 - Per plugin independent interpreter state
 - Python interactive console
 - Python interactive command execution
-- Python 2 and 3 support (2.9.6+)
-- Full thread support (except for Python2 on Windows)
+- Full thread support
 - Stdout and stderr redirected to ZoiteChat console
 - Dynamic list management
 - Nice context treatment
 - Plugin preferences
 
 
-Python 2 or Python 3
+Only Python 3 is supported
 ~~~~~~~~~~~~~~~~~~~~
 
-As of ZoiteChat 2.9.6 the plugin supports both so which should you pick:
-
-As a user most older scripts will not be updated for Python 3 so 2 is your best bet.
-
-As a developer I would just recommend you make your scripts compatible for both but do note that
-the Python 2 plugin on Windows does not support threads while the Python 3 plugin does.
+HexChat supported both Python 2 and 3, but ZoiteChat only supports Python 3.
+If you want to use an old Python 2 HexChat script, you may be able to port it
+following the standards below.
 
 Commands
 --------

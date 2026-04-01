@@ -5,7 +5,7 @@ ZoiteChat ships with a handful of useful plugins that extend the functionality o
 
 With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
 
-A list of many existing addons can be found at `https://github.com/zoitechat/zoitechat-addons <https://github.com/zoitechat/zoitechat-addons>`_.
+A directory of existing ZoiteChat addons can be found at `https://zoitechat.org/addons.php <https://zoitechat.org/addons.php>`_. In addition, since ZoiteChat is based on HexChat, most HexChat and many X-Chat 2 scripts and addons are compatible too, as long as they are written in a `supported scripting language <developers.html>`_.
 
 
 Exec
@@ -34,7 +34,7 @@ You can remove the key with:
 Update Checker
 --------------
 
-Automatically checks for updates available. Can be manually checked via :menuselection:`Help --> Check for Updates` or by the command:
+Windows only. Automatically checks for available updates. Can also be manually checked via :menuselection:`Help --> Check for Updates` or by the command:
 
 :command:`/updchk`
 
@@ -61,5 +61,5 @@ Displays your currently playing song via :menuselection:`Window --> Display Curr
 :command:`/winamp`
 
 .. note::
-
-    Foobar2000 can also be used with the `foo_winamp_spam <https://github.com/RazielZ/foo_winamp_spam>`_ plugin.
+    - Windows-only and untested, but may work
+    - Foobar2000 can also be used with the `foo_winamp_spam <https://github.com/RazielZ/foo_winamp_spam>`_ plugin.

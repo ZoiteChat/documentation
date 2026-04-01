@@ -4,9 +4,7 @@ ZoiteChat Perl Interface
 Introduction
 ------------
 
-This is the Perl interface for ZoiteChat. If there are any problems,
-questions, comments or suggestions please email them to the address on
-the bottom of this page.
+This is the Perl interface for ZoiteChat.
 
 Constants
 ---------
@@ -886,9 +884,7 @@ Asynchronous DNS resolution with hook\_fd
         return EAT_ZOITECHAT;
     });
 
-Contact Information
+Author Information
 -------------------
 
-Contact Lian Wan Situ at <atmcmnky [at] yahoo.com> for questions,
-comments and corrections about this page or the Perl plugin itself. You
-can also find me in #xchat on freenode under the nick Khisanth.
+This manual was originally written by Lian Wan Situ at <atmcmnky [at] yahoo.com>.

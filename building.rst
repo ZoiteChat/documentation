@@ -91,7 +91,7 @@ if you get an error.
 Most package-managers can get the dependencies for you:
 
 - dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep zoitechat && dnf install python3-cffi
-- apt: apt-get install -y meson libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libluajit-5.1-dev libpci-dev libperl-dev libssl-dev python3-dev python3-cffi desktop-file-utils
+- apt: apt-get install -y meson gettext iso-codes libarchive-dev libayatana-appindicator3-dev libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk-3-dev liblua5.3-dev libpci-dev libperl-dev libssl-dev python3-dev python3-cffi desktop-file-utils
 
 ZoiteChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
@@ -108,59 +108,3 @@ basically:
 This will compile with defaults. See ``meson configure build`` for more info
 about flags.
 
-Building Theme Manager
-~~~~~~~~~~~~~~~~~~~~~~
-
-The theme manager isn't built by default on Unix. To do so get zoitechat's source as mentioned above and install MonoDevelop with your package manager of choice then run this:
-
-.. code-block:: bash
-
-    meson configure build -Dtheme-manager=true
-    ninja -C build
-    sudo ninja -C build install
-
-OS X
-----
-
-.. warning::
-
-    macOS is not officially supported, is not simple to build for, and the end result will not be great.
-
-JHBuild
-~~~~~~~
-
-JHBuild allows you to build the entire stack required by ZoiteChat.
-It uses the quartz backend as well as a more native theme.
-It can be more hands on and complex than the automated Homebrew method.
-
-1. Follow the instructions on Gnome's site for `Building on OSX`_
-
-.. note::
-
-    Some of these builds may fail and require dropping to a shell to fix them.
-    Most are trivial but the packages are always changing so you are on your own.
-
-Once everything is set up we can build zoitechat:
-
-.. code-block:: bash
-
-    git clone https://github.com/zoitechat/zoitechat.git && cd zoitechat
-    ./autogen.sh --prefix=$JHBUILD_PREFIX
-    make && make install
-    zoitechat
-
-If you want to make the ZoiteChat.app bundle it will take some more work.
-
-1. Follow the instructions on Gnome's site for `Bundling on OSX`_
-2. Build and install these packages
-
-   - Modified `gtk-quartz-engine <https://github.com/TingPing/gtk-quartz-engine/tree/mono>`_
-   - `xamarin-gtk-theme <https://github.com/mono/xamarin-gtk-theme>`_
-   - enchant with these `patches <https://gist.github.com/TingPing/2d88a875b50da15c352d>`_
-
-.. code-block:: bash
-
-    cd osx && ./makebundle.sh
-
-.. _Building on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Building
-.. _Bundling on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Bundling

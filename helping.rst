@@ -1,15 +1,6 @@
 How to Help
 ===========
 
-Translation
------------
-
-Translation is handled by `Transifex <https://www.transifex.com/projects/p/zoitechat/>`_. Simply register on the site and apply for membership to a translation team for your language. Approval may take some time.
-
-.. note::
-
-    Your Transifex email will be public in the created files.
-
 Documentation
 -------------
 
@@ -41,4 +32,4 @@ We use `Github Issues <https://github.com/zoitechat/zoitechat/issues>`_ for our 
 IRC Support
 -----------
 
-Anybody who enjoys helping others and understands much of what's on this site is welcome to help new users in our official irc channel on irc.libera.chat, `#zoitechat <ircs://irc.libera.chat/zoitechat>`_.
+Anybody who enjoys helping others and understands much of what's on this site is welcome to help new users in either of our official irc channels: on Zoite, `#zoitechat <ircs://irc.zoite.net/zoitechat>`_ or on Libera.Chat, `#zoitechat <ircs://irc.libera.chat/zoitechat>`_.

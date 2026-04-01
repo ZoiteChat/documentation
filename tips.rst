@@ -9,35 +9,21 @@ Windows
 
 .. image:: _static/img/tips_spellcheck.png
 
-If you want to have spelling, do the following:
+ZoiteChat comes with spellcheck already installed. To use additional dictionaries, add them to Windows:
 
-1.
- - If on Windows 7 select the spelling dictionaries in the installer.
- - For Windows 8+ dictionaries are obtained through the OS.
-2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, ZoiteChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
-
-.. note::
-
-    For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
-    
-Windows 10
-~~~~~~~~~~
-
-ZoiteChat comes with the spell check already installed, but installing dictionaries is slightly different.
-
-1. In Windows, go to Start -> Settings -> Time & Language -> Region & Language.
-2. Add a new language(s).
+1. In the Start menu, go to :menuselection:`Settings -> Time & Language -> Region & Language`.
+2. Add new language(s).
 3. Restart ZoiteChat.
 
 
 Unix
 ~~~~
 
-Install enchant and your spelling dictionaries via your package manager (myspell-en-us on the Debians or hunspell-en-US everywhere else for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
+ZoiteChat comes with spellcheck already installed and enabled by default on most platforms.
 
-In 2.10.0+ you can then list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
+.. note:: If it's missing, install enchant and your spelling dictionaries via your package manager (e.g. hunspell-en-us for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-In older versions the language can be overriden by starting ZoiteChat with "*LANG=en_US zoitechat*" (You can edit your zoitechat.desktop file to do this every launch)
+You can list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
 
 Localization
 ------------
@@ -78,16 +64,16 @@ Client certificates identify you to IRC network services. This is separate from 
 
 Use the network list dialog to configure client certification for each network:
 
-#. Open :menuselection:`Network List`.
-#. Select a network and click :menuselection:`Edit`.
+#. Open :menuselection:`ZoiteChat --> Network List`.
+#. Select a network and click :command:`Edit`.
 #. In the client SSL cert area, use the buttons shown for your current state:
 
-   - Use :menuselection:'Generate client SSL cert' to create a new certificate for that network, or :menuselection:'Import client SSL cert' to copy an existing one.
-   - If a certificate already exists, use :menuselection:'Client SSL cert info' to inspect it or :menuselection:'Delete cert' to remove it.
+   - Use :command:`Generate client SSL cert` to create a new certificate for that network, or :command:`Import client SSL cert` to copy an existing one.
+   - If a certificate already exists, use :command:`Client SSL cert info` to inspect it or :command:`Delete cert` to remove it.
 
 On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
 
-   - Save the network settings and reconnect.
+4. Save the network settings and reconnect.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,4 +144,4 @@ Twitch.tv uses irc for chat so you can use a regular client for chat but it is a
 
 In the Network List add a new network and for the server use *irc.chat.twitch.tv* with SSL. You must have your nickname match your twitch account. For the login method choose *Server Password* and generate a password on this website `<http://twitchapps.com/tmi>`_
 
-To enhance your experience I recommend using the `twitch.lua <https://github.com/TingPing/plugins/blob/master/ZoiteChat/twitch.lua>`_ script.
+To enhance your experience I recommend using the `twitch.lua <https://github.com/TingPing/plugins/blob/master/HexChat/twitch.lua>`_ script.
