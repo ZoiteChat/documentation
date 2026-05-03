@@ -4,7 +4,7 @@ Frequently Asked Questions
 How do I migrate my settings from HexChat?
 ----------------------------------------
 
-.. Caution:: This is not officially supported. Some things will work and others may not. You have been warned.
+.. Caution:: Not officially supported; ZoiteChat 2.18.0 should be backwards compatible with HexChat 2.16.x, but double-check your settings and addons after migrating.
 
 - Unix
 
