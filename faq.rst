@@ -4,7 +4,7 @@ Frequently Asked Questions
 How do I migrate my settings from HexChat?
 ----------------------------------------
 
-.. Caution:: This is not officially supported. Some things will work and others may not. You have been warned.
+.. Caution:: Not officially supported; ZoiteChat 2.18.0 should be backwards compatible with HexChat 2.16.x, but double-check your settings and addons after migrating.
 
 - Unix
 
@@ -12,6 +12,8 @@ How do I migrate my settings from HexChat?
   2. Rename ``~/.config/hexchat/hexchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
   3. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
   4. Move all your client certs to ``~/.config/zoitechat/certs``
+
+If there is nothing in ``~/.config/zoitechat``, check your `config file location <settings.html#config-files>`_. Some installation methods like snap and flatpak use a different directory.
 
 - Windows
 
