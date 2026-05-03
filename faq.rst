@@ -13,6 +13,8 @@ How do I migrate my settings from HexChat?
   3. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
   4. Move all your client certs to ``~/.config/zoitechat/certs``
 
+If there is nothing in ``~/.config/zoitechat``, check your `config file location <settings.html#config-files>`_. Some installation methods like snap and flatpak use a different directory.
+
 - Windows
 
   1. Copy ``%APPDATA%\HexChat`` to ``%APPDATA%\ZoiteChat``
