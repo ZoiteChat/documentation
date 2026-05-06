@@ -92,7 +92,7 @@ Most package-managers can get the dependencies for you:
 
 - dnf::
 
-    dnf install -y meson gettext-devel gtk3-devel iso-codes-devel libarchive-devel libayatana-appindicator-gtk3-devel libcanberra-devel lua-devel perl-devel perl-ExtUtils-Embed python3-cffi python3-devel
+    dnf install -y meson gettext-devel gtk3-devel iso-codes-devel libarchive-devel libayatana-appindicator-gtk3-devel libcanberra-devel lua-devel openssl-devel perl-devel perl-ExtUtils-Embed python3-cffi python3-devel
 
 - apt::
 
