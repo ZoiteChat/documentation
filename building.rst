@@ -101,7 +101,7 @@ basically:
 
     git clone https://github.com/zoitechat/zoitechat.git
     cd zoitechat
-    meson build
+    meson setup build
     ninja -C build
     sudo ninja -C build install
 
