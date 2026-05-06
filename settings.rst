@@ -7,7 +7,6 @@ Config Files
 Config files are stored as plaintext files (which shouldn't be edited by hand). They are located in:
 
 - Windows: :file:`%APPDATA%\\ZoiteChat`
-- Microsoft Store: :file:`%LOCALAPPDATA%\\Packages\\39215TingPing.ZoiteChat_fqe8h3fzrj50c\\LocalCache\\Roaming\\ZoiteChat`
 - Unix: :file:`~/.config/zoitechat`
 - Flatpak: :file:`~/.var/app/io.github.Hexchat/config/zoitechat`
 - Snap: :file:`~/snap/zoitechat/current/.config/zoitechat`
