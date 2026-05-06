@@ -90,7 +90,7 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep zoitechat && dnf install python3-cffi
+- dnf: dnf install meson gettext-devel gtk3-devel iso-codes-devel libarchive-devel libayatana-appindicator-gtk3-devel libcanberra-devel lua-devel perl-devel perl-ExtUtils-Embed python3-cffi python3-devel
 - apt: apt-get install -y meson gettext iso-codes libarchive-dev libayatana-appindicator3-dev libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk-3-dev liblua5.3-dev libpci-dev libperl-dev libssl-dev python3-dev python3-cffi desktop-file-utils
 
 ZoiteChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
