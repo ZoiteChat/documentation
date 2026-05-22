@@ -4,82 +4,77 @@ Building
 Windows
 -------
 
+The Windows build is currently x64-only and follows the same shape as
+ZoiteChat's Windows GitHub Actions workflow: prepare ``C:\gtk-build``, put
+the dependency bundles where ``win32\zoitechat.props`` expects them, then build
+``win32\zoitechat.sln`` with MSBuild.
+
 Software
 ~~~~~~~~
 
-Download and install (in their default install paths):
+Install:
 
-- `Visual Studio 2019 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
-- `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
-- `Inno Download Plugin <https://dl.zoitechat.net/misc/idpsetup-1.5.1.exe>`_
-- `7-Zip <http://7-zip.org/>`_
-- `gendef <https://dl.zoitechat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
-- `WinSparkle <https://dl.zoitechat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build\\WinSparkle*)
-
+- `Visual Studio 2022 Community <https://visualstudio.microsoft.com/vs/community/>`_ or `Visual Studio 2022 Build Tools <https://visualstudio.microsoft.com/downloads/>`_ with the **Desktop development with C++** workload
+- `Git for Windows <https://git-scm.com/download/win>`_
+- `7-Zip <https://7-zip.org/>`_
+- `Python 3.14 x64 <https://www.python.org/downloads/windows/>`_
+- `Inno Setup 6 <https://jrsoftware.org/isdl.php>`_ if you want to build the installer
 
 Source code
 ~~~~~~~~~~~
 
-Download the `ZoiteChat source code`_ and extract
-it to somewhere. You will work in the extracted *zoitechat* folder from
-now.
+Clone the source and enter the checkout::
 
-.. _ZoiteChat source code: https://github.com/zoitechat/zoitechat/zipball/master
+    git clone https://github.com/zoitechat/zoitechat.git
+    cd zoitechat
 
-GTK+
-~~~~
+Dependencies
+~~~~~~~~~~~~
 
-Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\gtk-build\\gtk* by default).
-Specify the absolute path to *YourDepsPath* in *win32\\zoitechat.props*
-with the *YourDepsPath* property. Download:
+Create the dependency root::
 
-- `GTK+ bundle <https://dl.zoitechat.net/gtk>`_
+    mkdir C:\gtk-build
 
-Extract them to *Win32* and *x64* in *YourDepsPath*.
+Download the `GTK3 x64 bundle <https://github.com/ZoiteChat/gvsbuild/releases/download/zoitechat-2.18.1/GTK3_Gvsbuild_zoitechat-2.18.1_x64.zip>`_
+and extract it to ``C:\gtk-build\gtk\x64\release``.
 
-.. SEEALSO::
+Download the remaining Windows dependency artifacts from the
+`ZoiteChat gvsbuild releases <https://github.com/zoitechat/gvsbuild/releases>`_
+and extract them to these paths:
 
-    If you would like to build GTK+ yourself, see this `repo <https://github.com/wingtk/gvsbuild>`_.
+- gendef: ``C:\gtk-build\gendef``
+- WinSparkle x64 bundle: ``C:\gtk-build\WinSparkle\x64``
+- Perl 5.42 x64 bundle: ``C:\gtk-build\perl-5.42.0.1\x64``
 
-Language interfaces
-~~~~~~~~~~~~~~~~~~~
+Set up Python where the project file expects it. From PowerShell, adjust the
+Python path if your install is elsewhere::
 
-You can skip this step, but then you won't be able to generate the
-installer.
-Download:
+    mkdir C:\gtk-build\python-3.14
+    cmd /c mklink /J C:\gtk-build\python-3.14\x64 C:\Python314
+    C:\gtk-build\python-3.14\x64\python.exe -m pip install --upgrade pip cffi
 
--  Perl_ 5.20 x86 (install to *C:\\gtk-build\\perl-5.20\\Win32*)
--  Python_ 2.7 x86 (install to *C:\\gtk-build\\python-2.7\\Win32*)
--  Python_ 3.6 x86 (install to *C:\\gtk-build\\python-3.6\\Win32*)
+If you use different locations, set these environment variables before building
+instead of editing ``win32\zoitechat.props``:
 
--  Perl_ 5.20 x64 (install to *C:\\gtk-build\\perl-5.20\\x64*)
--  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
--  Python_ 3.6 x64 (install to *C:\\gtk-build\\python-3.6\\x64*)
-
-.. _Perl: https://dl.zoitechat.net/misc/perl/
-.. _Python: http://www.python.org/download/
-
-You can use other paths, but then you must update the related properties
-in *win32\\zoitechat.props* accordingly.
+- ``ZOITECHAT_DEPS_PATH``
+- ``ZOITECHAT_GENDEF_PATH``
+- ``ZOITECHAT_PERL_PATH``
+- ``ZOITECHAT_PYTHON3_PATH``
+- ``ZOITECHAT_WINSPARKLE_PATH``
+- ``ZOITECHAT_ISCC_PATH``
 
 Building
 ~~~~~~~~
 
-Open PowerShell as administrator and run::
+Open **Developer Command Prompt for VS 2022** in the source checkout and run::
 
-    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    msbuild win32\zoitechat.sln /m /verbosity:minimal /p:Configuration=Release /p:Platform=x64
 
-- If you're on 32-bit Windows, this is *C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe*
-- If you're on 64-bit Windows, this is *C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe* (notice that this is the 32-bit PowerShell executable)
+To build the installer, open ``win32\zoitechat.sln`` in Visual Studio,
+set ``release/installer`` as the startup project, then run **Build**.
 
-Open *win32\\zoitechat.sln*, right click on the *release/installer* (or
-*release/copy* if you skipped the language interfaces) project and set
-it as the startup project. Now you can compile from under the *Build*
-menu to your taste.
-
-If everything went fine, the resulting binaries will be found in
-*zoitechat-build\\Win32* and/or *zoitechat-build\\x64*. It was easy, wasn't
-it?
+The build output is written to ``..\zoitechat-build\x64``. The installer
+build writes a ``ZoiteChat*.exe`` installer in that output tree.
 
 Unix
 ----
