@@ -114,7 +114,7 @@
 {%- endif %}
 {%- endmacro %}
 
-{% set script_files = script_files + ['_static/js/bootstrap' + theme_bootstrap_version + '.min.js'] %}
+{% set script_files = ['_static/js/jquery.min.js'] + script_files + ['_static/js/bootstrap' + theme_bootstrap_version + '.min.js'] %}
 {%- macro script() %}
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
