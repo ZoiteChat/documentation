@@ -114,8 +114,9 @@
 {%- endif %}
 {%- endmacro %}
 
-{% set script_files = script_files + ['_static/js/bootstrap' + theme_bootstrap_version + '.min.js'] %}
+{% set script_files = (['_static/js/jquery.min.js'] if '_static/js/jquery.min.js' not in script_files else []) + script_files + ['_static/js/bootstrap' + theme_bootstrap_version + '.min.js'] %}
 {%- macro script() %}
+{%- if '_static/documentation_options.js' not in script_files %}
 <script type="text/javascript">
   var DOCUMENTATION_OPTIONS = {
             URL_ROOT:    '{{ url_root }}',
@@ -125,6 +126,7 @@
             HAS_SOURCE:  {{ has_source|lower }}
   };
 </script>
+{%- endif %}
 {%- for scriptfile in script_files %}
   {%- if scriptfile is string -%}
     <script src="{{ pathto(scriptfile, 1) }}"></script>
@@ -171,7 +173,6 @@
   }
 </style>
 {% endif %}
-<link rel="stylesheet" href="{{ pathto('_static/css/bootstrap.css' , 1) }}" type="text/css" />
 <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
 {%- for cssfile in css_files %}
   {%- if cssfile is string -%}
