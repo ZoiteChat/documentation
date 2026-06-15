@@ -114,6 +114,7 @@
 {%- endif %}
 {%- endmacro %}
 
+
 {% set script_files = (['_static/js/jquery.min.js'] if '_static/js/jquery.min.js' not in script_files else []) + script_files + ['_static/js/bootstrap' + theme_bootstrap_version + '.min.js'] %}
 {%- macro script() %}
 {%- if '_static/documentation_options.js' not in script_files %}
