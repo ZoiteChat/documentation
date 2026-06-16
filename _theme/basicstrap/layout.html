@@ -175,13 +175,6 @@
 </style>
 {% endif %}
 <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
-{%- for cssfile in css_files %}
-  {%- if cssfile is string -%}
-    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
-  {%- else -%}
-    {{ css_tag(cssfile) }}
-  {%- endif -%}
-{%- endfor %}
 {%- if (not theme_noresponsive|tobool) and theme_bootstrap_version == "2" %}
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap2/bootstrap-responsive.min.css', 1) }}" type="text/css" />
 {%- endif %}
@@ -189,6 +182,15 @@
 {%- if theme_noresponsive|tobool and theme_bootstrap_version == "3" %}
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap3/bootstrap-non-responsive.css', 1) }}" type="text/css" />
 {%- endif %}
+
+{# Keep project CSS last so Bootstrap/basicstrap cannot re-float or resize the docs columns. #}
+{%- for cssfile in css_files %}
+  {%- if cssfile is string -%}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- else -%}
+    {{ css_tag(cssfile) }}
+  {%- endif -%}
+{%- endfor %}
 
 {%- endmacro %}
 
@@ -247,165 +249,41 @@
   <body role="document">
 
     {%- block header %}
-
-    {%- if theme_bootstrap_version == "3" %}
-    <div id="navbar-top" class="navbar {% if (theme_nav_fixed_top|tobool) %}navbar-fixed-top {% endif %}{% if (theme_header_inverse|tobool) %}navbar-inverse{% else %}navbar-default{% endif %}" role="navigation" aria-label="top navigation">
-      <div class="{% if (not theme_nav_fixed|tobool) %}container-fluid{% else %}container{% endif %}">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-
-            {%- if (not theme_noresponsive|tobool) and display_toc %}
-              <li class="dropdown visible-{{ class_device_xs }}">
-                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">{{ _('Table Of Contents') }} <b class="caret"></b></a>
-                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
-                {{ toc }}
-                </ul>
-              </li>
-            {%- endif %}
-
-            {%- if theme_theme_preview|tobool %}
-            <li><a href="#" data-toggle="modal" data-target=".debug-modal">theme preview</a></li>
-            {%- endif %}
-
-            {% if not (theme_nosidebar|tobool) %}
-              {%- for rellink in rellinks|reverse %}
-              <li><a href="{{ pathto(rellink[0]) }}" title="{{ rellink[1]|striptags|e }}" {{ accesskey(rellink[2]) }}>{{ rellink[3] }} </a></li>
-              {%- endfor %}
-              {%- for parent in parents %}
-              <li><a href="{{ parent.link|e }}" {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a></li>
-              {%- endfor %}
-            {% else %}
-              <li><a class="uplink" href="{{ pathto(master_doc) }}">{{ _('Contents') }}</a></li>
-              {%- if prev %}
-              <li><a href="{{ prev.link|e }}"><i class="icon icon-double-angle-left"></i>&nbsp;{{ prev.title }}</a></li>
-              {%- endif %}
-              {%- if next %}
-              <li><a href="{{ next.link|e }}">{{ next.title }}&nbsp;<i class="icon icon-double-angle-right"></i></a></li>
-              {%- endif %}
-            {%- endif %}
-
-            {%- if not theme_noresponsive|tobool %}
-            {%- if show_source and has_source and sourcename %}
-            <li class="visible-{{ class_device_xs }}"><a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow">{{ _('Show Source') }}</a></li>
-            {%- endif %}
-
-            <li class="visible-{{ class_device_xs }}">
-                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="{{ pathto('search') }}" method="get">
-                  <div class="input-append input-group">
-                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
-                    <span class="input-group-btn">
-                    <input type="submit" class="btn" value="{{ _('Go') }}" />
-                    </span>
-                  </div>
-                  <input type="hidden" name="check_keywords" value="yes" />
-                  <input type="hidden" name="area" value="default" />
-                </form>
-            </li>
-            {%- endif %}
-
-            {% if (theme_nosidebar|tobool) and (theme_header_searchbox|tobool) %}
-            <li>
-              <form class="navbar-form navbar-right" action="{{ pathto('search') }}" method="get">
-               <div class="form-group" style="padding-right:20px;">
-                <input type="text" name="q" class="form-control" placeholder="Search" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="navbar" />
-               </div>
-              </form>
-            </li>
-            {% endif %}
-
-          </ul>
-
-        </div>
+    <header id="navbar-top" class="site-header" role="banner">
+      <div class="shell nav-shell">
+        <a class="brand" href="https://zoitechat.org/" aria-label="ZoiteChat home">
+          <img class="brand-logo" src="{{ pathto('_static/zoitechat-logo.svg', 1) }}" alt="" width="44" height="48">
+          <span class="brand-text">ZoiteChat</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="https://zoitechat.org/">Home</a>
+          <a href="https://zoitechat.org/addons.php">Addons</a>
+          <a href="https://zoitechat.org/download.php">Download</a>
+          <a href="{{ pathto(master_doc) }}">Docs</a>
+          <a href="https://github.com/ZoiteChat/zoitechat" target="_blank" rel="noopener">GitHub</a>
+          <details class="nav-menu">
+            <summary>IRC Support</summary>
+            <div class="nav-menu-panel" aria-label="IRC support channels">
+              <a href="https://zoite.net/webchat/?join=%23zoitechat" target="_blank" rel="noopener">
+                <strong>Zoite IRC</strong>
+                <span>Official network, #zoitechat</span>
+              </a>
+              <a href="https://web.libera.chat/#zoitechat" target="_blank" rel="noopener">
+                <strong>Libera.Chat</strong>
+                <span>Secondary support channel, #zoitechat</span>
+              </a>
+            </div>
+          </details>
+        </nav>
       </div>
-    </div>
-
-    {%- else %}
-
-    <div id="navbar-top" class="navbar {% if (theme_nav_fixed_top|tobool) %}navbar-fixed-top {% endif %}{% if (theme_header_inverse|tobool) %}navbar-inverse{% else %}navbar-default{% endif %}" role="navigation" aria-label="top navigation">
-      <div class="navbar-inner">
-        <div class="{% if (not theme_nav_fixed|tobool) %}container-fluid{% else %}container{% endif %}">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div role="banner">
-            <a class="brand" href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
-          </div>
-          <div class="nav-collapse collapse">
-            <ul class="nav pull-right">
-
-              {%- if (not theme_noresponsive|tobool) and display_toc %}
-                <li class="dropdown hidden-lg hidden-{{ class_device_md }}">
-                  <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">{{ _('Table Of Contents') }} <b class="caret"></b></a>
-                  <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
-                  {{ toc }}
-                  </ul>
-                </li>
-              {%- endif %}
-
-              {%- if theme_theme_preview|tobool %}
-              <li><a href="#" data-toggle="modal" data-target=".debug-modal">quick preview</a></li>
-              {%- endif %}
-
-              {% if not (theme_nosidebar|tobool) %}
-                {%- for rellink in rellinks|reverse %}
-                <li><a href="{{ pathto(rellink[0]) }}" title="{{ rellink[1]|striptags|e }}" {{ accesskey(rellink[2]) }}>{{ rellink[3] }}</a></li>
-                {%- endfor %}
-                {%- for parent in parents %}
-                <li><a href="{{ parent.link|e }}" {% if loop.last %}{{ accesskey("U") }}{% endif %}>{{ parent.title }}</a></li>
-                {%- endfor %}
-              {% else %}
-                <li><a class="uplink" href="{{ pathto(master_doc) }}">{{ _('Contents') }}</a></li>
-                {%- if prev %}
-                <li><a href="{{ prev.link|e }}"><i class="icon icon-double-angle-left"></i>&nbsp;{{ prev.title }}</a></li>
-                {%- endif %}
-                {%- if next %}
-                <li><a href="{{ next.link|e }}">{{ next.title }}&nbsp;<i class="icon icon-double-angle-right"></i></a></li>
-                {%- endif %}
-              {%- endif %}
-
-              {%- if not theme_noresponsive|tobool %}
-              {%- if show_source and has_source and sourcename %}
-              <li class="hidden-lg hidden-{{ class_device_md }}"><a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow">{{ _('Show Source') }}</a></li>
-              {%- endif %}
-
-              <li class="hidden-lg hidden-{{ class_device_md }}">
-                  <form class="search form-search form-inline sp-searchbox" action="{{ pathto('search') }}" method="get">
-                    <div class="input-append">
-                      <input type="text" class="search-query form-control" name="q" placeholder="Search...">
-                      <input type="submit" class="btn" value="{{ _('Go') }}" />
-                    </div>
-                    <input type="hidden" name="check_keywords" value="yes" />
-                    <input type="hidden" name="area" value="default" />
-                  </form>
-              </li>
-              {%- endif %}
-
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    {%- endif %}
+    </header>
     {% endblock %}
 
     <!-- container -->
-    <div class="{% if (not theme_content_fixed|tobool) %}container-fluid{% else %}container{% endif %}">
+    <div class="{% if (not theme_content_fixed|tobool) %}container-fluid{% else %}container{% endif %} docs-shell">
 
       <!-- row -->
-      <div class="{{ class_row }}">
+      <div class="{{ class_row }} docs-main-row">
         {%- block content %}
 
         {%- block sidebar1 %}
@@ -444,20 +322,29 @@
 
       <!-- footer -->
       {%- block footer %}
-      <footer role="contentinfo">
-      {%- if show_copyright %}
-        {%- if hasdoc('copyright') %}
-          {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
-        {%- else %}
-          {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
-        {%- endif %}
-      {%- endif %}
-      {%- if last_updated %}
-        {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
-      {%- endif %}
-      {%- if show_sphinx %}
-        {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
-      {%- endif %}
+      <footer class="site-footer" role="contentinfo">
+        <div class="shell footer-grid">
+          <div>
+            <div class="footer-brand-wrap">
+              <img class="footer-logo" src="{{ pathto('_static/zoitechat-logo.svg', 1) }}" alt="" width="40" height="44">
+              <div class="footer-brand">ZoiteChat</div>
+            </div>
+            <p class="footer-copy">ZoiteChat is a HexChat fork, carrying that client lineage forward with care. Built on the foundation HexChat left behind, and grateful to the project and people that made it possible.</p>
+          </div>
+          <div class="footer-links">
+            <a href="https://zoitechat.org/download.php">Download</a>
+            <a href="https://zoitechat.org/addons.php">Addons</a>
+            <a href="https://zoitechat.org/privacy.php">Privacy Policy</a>
+            <a href="{{ pathto(master_doc) }}">Documentation</a>
+            <a href="https://github.com/ZoiteChat/zoitechat" target="_blank" rel="noopener">Source code</a>
+            <a href="https://zoite.net/webchat/?join=%23zoitechat" target="_blank" rel="noopener">Official IRC support</a>
+            <a href="https://web.libera.chat/#zoitechat" target="_blank" rel="noopener">Libera IRC support</a>
+          </div>
+          <div class="footer-meta">
+            <div>Documentation source: Read the Docs / Sphinx</div>
+            <div>Theme skin: ZoiteChat main site</div>
+          </div>
+        </div>
       </footer>
       {%- endblock %}
       <!-- /footer -->
