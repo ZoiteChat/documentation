@@ -2163,3 +2163,87 @@ footer:not(.site-footer) {
         letter-spacing: -0.06em !important;
     }
 }
+
+/* Documentation heading scale
+   Keep the ZoiteChat visual language, but stop normal docs titles from using
+   the oversized marketing hero scale. */
+.document .body section:first-child > h1:first-child,
+.document .body > h1:first-child {
+    max-width: 24ch !important;
+    margin: 0.15rem 0 1rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(2.05rem, 4.8vw, 3.35rem) !important;
+    font-weight: 900 !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.058em !important;
+    text-wrap: balance !important;
+}
+
+.document .body h1:not(:first-child) {
+    max-width: 28ch !important;
+    margin: 2.15rem 0 0.85rem !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.8rem, 3.8vw, 2.65rem) !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.052em !important;
+    text-wrap: balance !important;
+}
+
+.document .body h2 {
+    max-width: 34ch !important;
+    margin: 2rem 0 0.75rem !important;
+    font-family: var(--font-mono) !important;
+    font-size: clamp(1.25rem, 2.2vw, 1.72rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+    text-transform: none !important;
+    text-wrap: balance !important;
+}
+
+.document .body h3,
+.document .body h4,
+.document .body h5,
+.document .body h6,
+.document .body .topic-title,
+.document .body dt {
+    max-width: 44ch !important;
+    margin: 1.45rem 0 0.45rem !important;
+    font-family: var(--font-mono) !important;
+    font-size: clamp(1.02rem, 1.45vw, 1.22rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.035em !important;
+}
+
+@media (max-width: 760px) {
+    .document .body section:first-child > h1:first-child,
+    .document .body > h1:first-child {
+        max-width: none !important;
+        font-size: clamp(1.85rem, 10vw, 2.65rem) !important;
+        line-height: 1 !important;
+        letter-spacing: -0.055em !important;
+    }
+
+    .document .body h1:not(:first-child) {
+        max-width: none !important;
+        font-size: clamp(1.55rem, 8vw, 2.15rem) !important;
+    }
+
+    .document .body h2 {
+        max-width: none !important;
+        font-size: clamp(1.18rem, 5.4vw, 1.48rem) !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    .document .body h3,
+    .document .body h4,
+    .document .body h5,
+    .document .body h6,
+    .document .body .topic-title,
+    .document .body dt {
+        max-width: none !important;
+        font-size: 1rem !important;
+    }
+}
