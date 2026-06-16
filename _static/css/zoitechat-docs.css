@@ -2247,3 +2247,31 @@ footer:not(.site-footer) {
         font-size: 1rem !important;
     }
 }
+
+/* Index/toctree section headings
+   Pages such as index.rst can contain multiple top-level reStructuredText
+   headings. Sphinx emits those as h1, but visually they are documentation
+   section labels, not marketing/page hero titles. */
+.document .body h1:not(:first-child),
+.document .body section:not(:first-child) > h1:first-child,
+.document .body div.section:not(:first-child) > h1:first-child {
+    max-width: 34ch !important;
+    margin: 2rem 0 0.75rem !important;
+    font-family: var(--font-mono) !important;
+    font-size: clamp(1.25rem, 2.2vw, 1.72rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+    text-transform: none !important;
+    text-wrap: balance !important;
+}
+
+@media (max-width: 760px) {
+    .document .body h1:not(:first-child),
+    .document .body section:not(:first-child) > h1:first-child,
+    .document .body div.section:not(:first-child) > h1:first-child {
+        max-width: none !important;
+        font-size: clamp(1.18rem, 5.4vw, 1.48rem) !important;
+        letter-spacing: -0.04em !important;
+    }
+}
