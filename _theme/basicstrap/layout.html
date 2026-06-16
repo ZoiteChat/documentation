@@ -175,13 +175,6 @@
 </style>
 {% endif %}
 <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
-{%- for cssfile in css_files %}
-  {%- if cssfile is string -%}
-    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
-  {%- else -%}
-    {{ css_tag(cssfile) }}
-  {%- endif -%}
-{%- endfor %}
 {%- if (not theme_noresponsive|tobool) and theme_bootstrap_version == "2" %}
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap2/bootstrap-responsive.min.css', 1) }}" type="text/css" />
 {%- endif %}
@@ -189,6 +182,15 @@
 {%- if theme_noresponsive|tobool and theme_bootstrap_version == "3" %}
 <link rel="stylesheet" href="{{ pathto('_static/css/bootstrap3/bootstrap-non-responsive.css', 1) }}" type="text/css" />
 {%- endif %}
+
+{# Keep project CSS last so Bootstrap/basicstrap cannot re-float or resize the docs columns. #}
+{%- for cssfile in css_files %}
+  {%- if cssfile is string -%}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- else -%}
+    {{ css_tag(cssfile) }}
+  {%- endif -%}
+{%- endfor %}
 
 {%- endmacro %}
 
@@ -281,7 +283,7 @@
     <div class="{% if (not theme_content_fixed|tobool) %}container-fluid{% else %}container{% endif %} docs-shell">
 
       <!-- row -->
-      <div class="{{ class_row }}">
+      <div class="{{ class_row }} docs-main-row">
         {%- block content %}
 
         {%- block sidebar1 %}
