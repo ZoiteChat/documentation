@@ -8,12 +8,10 @@ How do I migrate my settings from HexChat?
 
 - Unix
 
-  1. Copy ``~/.config/hexchat`` to ``~/.config/zoitechat``
-  2. Rename ``~/.config/hexchat/hexchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
-  3. Move all your 3rd party addons (plugins/scripts) to ``~/.config/zoitechat/addons``
-  4. Move all your client certs to ``~/.config/zoitechat/certs``
-
-If there is nothing in ``~/.config/zoitechat``, check your `config file location <settings.html#config-files>`_. Some installation methods like snap and flatpak use a different directory.
+  1. Copy ``~/.config/hexchat`` to ``~/.config/zoitechat``. If there is nothing in ``~/.config/zoitechat``, check your `config file location <settings.html#config-files>`_. Some installation methods like snap and flatpak use a different directory.
+  2. Rename ``~/.config/zoitechat/hexchat.conf`` to ``~/.config/zoitechat/zoitechat.conf``
+  3. Double-check your 3rd party addons (plugins/scripts) in ``~/.config/zoitechat/addons``
+  4. Double-check your client certs in ``~/.config/zoitechat/certs``
 
 - Windows
 
@@ -34,7 +32,7 @@ To automatically join channels for this network upon connecting, select the "Aut
 tab in this same window and add your desired channels here. You can also add a currently joined channel
 by right-clicking its name in the channel switcher and by toggling "Autojoin" on.
 
-How do I auto-reconnect after my computer wakes up from being in sleep/hibernate mode?
+How do I auto-reconnect after my computer wakes up from sleep/hibernate mode?
 --------------------------------------------------------------------------------------
 
 Try the following command from a chat window (time is in seconds)::
@@ -52,6 +50,8 @@ There are 3 ways to authenticate before joining a channel, all are network depen
 - Use a `client certificate <tips.html#client-certificates>`_.
 
 - Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`. This is not recommended but may be the only option on some older networks.
+
+Some networks (e.g, Libera.chat) also allow you to pass your nickserv password as part of a server login (Login method: Server password (/PASS password)), which ensures Nickserv identification is complete before zoitechat joins channels. This method is less secure than SASL because the verbatim password is transferred during login.
 
 
 How do I change what browser is opened?
@@ -85,7 +85,7 @@ Go to the menus, :menuselection:`Settings --> Preferences --> Network Setup`
 and fill in the requested information there. Authentication (using a
 username and password) is only supported for HTTP and Socks5.
 
-For information on Tor see our `tips page <tips.html#tor>`_
+For information on Tor see our `tips page <tips.html#tor>`_.
 
 How do I show @ and + in front of nicknames that are Op and Voice when they talk?
 ---------------------------------------------------------------------------------
@@ -226,17 +226,21 @@ How do I auto-load scripts at startup?
 
 The root of your ZoiteChat config is:
 
--  Windows: %APPDATA%\\ZoiteChat
--  Unix/Linux: ~/.config/zoitechat
+- Unix::
 
-Referred to as <config> from now. ZoiteChat automatically loads, at
-startup:
+    ~/.config/zoitechat
 
--  <config>/addons/\*.pl Perl scripts
--  <config>/addons/\*.py Python scripts
--  <config>/addons/\*.lua Lua scripts
--  <config>/addons/\*.dll Plugins (Windows)
--  <config>/addons/\*.so Plugins (Unix)
+- Windows::
+
+    %APPDATA%\\ZoiteChat
+
+Referred to as ``<config>`` from now. ZoiteChat automatically loads, at startup:
+
+-  ``<config>/addons/\*.pl`` Perl scripts
+-  ``<config>/addons/\*.py`` Python scripts
+-  ``<config>/addons/\*.lua`` Lua scripts
+-  ``<config>/addons/\*.dll`` Plugins (Windows)
+-  ``<config>/addons/\*.so`` Plugins (Unix)
 
 How do I minimize ZoiteChat to the System Tray (Notification Area)?
 -----------------------------------------------------------------

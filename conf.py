@@ -23,7 +23,7 @@ import os
 # -- General configuration ----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.0'
+needs_sphinx = '1.8'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
@@ -121,9 +121,17 @@ html_theme_path = ['_theme']
 # option of sphinx-build.
 #html_context = { 'foo': 'bar' }
 
+html_context = {
+    'zoite_site_url': 'https://zoitechat.org/',
+    'zoite_download_url': 'https://zoitechat.org/download.php',
+    'zoite_addons_url': 'https://zoitechat.org/addons.php',
+    'zoite_irc_url': 'https://zoite.net/webchat/?join=%23zoitechat',
+    'libera_irc_url': 'https://web.libera.chat/#zoitechat',
+}
+
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = None
+html_logo = 'zoitechat-logo.svg'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -134,6 +142,9 @@ html_favicon = '_static/favicon.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# Main-site visual skin for Read the Docs/Sphinx HTML output.
+html_css_files = ['css/zoitechat-docs.css']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.

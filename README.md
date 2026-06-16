@@ -32,3 +32,17 @@ Example:
 
         that is not visually indented
 ```
+
+## Read the Docs theme skin
+
+The HTML output keeps the existing `basicstrap` Sphinx theme, then applies the
+ZoiteChat main-site skin from `_static/css/zoitechat-docs.css`.
+
+Brand navigation links are set in `conf.py` through `html_context`, and the
+header logo uses `_static/zoitechat-logo.svg`.
+
+## ZoiteChat main-site documentation skin
+
+The Sphinx theme includes an aggressive `zoitechat-docs.css` override and layout header/footer changes so Read the Docs follows the main ZoiteChat website visual system as closely as possible while keeping Sphinx search, tables of contents, source links, and generated documentation pages intact.
+
+The override intentionally imports the main-site CSS tokens and component rules first, then maps Sphinx/basicstrap output onto the same header, nav, card, button, table, code, footer, and responsive patterns.
