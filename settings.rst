@@ -48,9 +48,23 @@ Unticking *Use global user information* allows unique nicknames or usernames bet
 Connecting
 ^^^^^^^^^^
 
-Ticking *Auto connect to this network at startup* combined with *Favorite channels* will allow you to quickly connect and join chats.
+Ticking *Connect to this network automatically* combined with favorite or autojoin channels lets ZoiteChat connect and join chats automatically.
 
-The password fields allow you to login to a password protected server or services. They take the syntax *username:password* or just the password if username has been set as mentioned above.
+The *Login method* setting controls how ZoiteChat identifies to the server or services. The password field is used by password-based login methods, including server password, NickServ, SASL, and custom connect commands. For custom connect commands, :code:`%p` expands to the saved password.
+
+Passwords are hidden by default. When a password already exists, the field may show :code:`***`; this is only a placeholder, not the real password. Tick *Show password* to load and reveal the current password from the correct storage backend.
+
+Tick *Use system keyring* to store the selected network's password in the operating system keyring instead of the local network configuration file. On Windows this uses Windows Credential Manager. On Unix-like systems this requires libsecret support and a working desktop keyring. If the keyring is locked, ZoiteChat may ask the system to unlock it before the password can be edited.
+
+When *Use system keyring* is disabled, ZoiteChat stores the saved password locally. New local passwords are saved in encrypted local storage when encryption support is available. Local encrypted passwords are less protected than the system keyring and are tied to the current user and configuration directory.
+
+Two migration buttons may appear for existing locally saved passwords:
+
+- *Encrypt saved password* converts an existing local plaintext password to encrypted local storage.
+- *Move password to keyring* moves an existing local password into the system keyring and removes the local saved password from the network configuration.
+
+Close the edit window to save changes to the password, login method, and selected password storage mode.
+
 
 .. seealso::
 
