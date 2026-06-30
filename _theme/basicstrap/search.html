@@ -52,7 +52,7 @@
   {% if search_results %}
     <ul>
     {% for href, caption, context in search_results %}
-      <li><a href="{{ pathto(item.href) }}">{{ caption }}</a>
+      <li><a href="{{ pathto(href) }}">{{ caption }}</a>
         <div class="context">{{ context|e }}</div>
       </li>
     {% endfor %}
